@@ -35,5 +35,7 @@ class RPTextField: UITextField {
         autocorrectionType = .no
 
         placeholder = "Lemon, Cheese, Sausages, ..."
+
+        returnKeyType = .done
     }
 }

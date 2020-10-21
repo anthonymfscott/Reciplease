@@ -25,6 +25,19 @@ class SearchVC: UIViewController {
         view.backgroundColor = .secondarySystemBackground
 
         configureHeaderView()
+        configureBodyView()
+        createDismissKeyboardTapGesture()
+    }
+
+    private func createDismissKeyboardTapGesture() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc private func pushRecipeListVC() {
+        let recipeListVC = RecipeListVC()
+
+        navigationController?.pushViewController(recipeListVC, animated: true)
     }
 
     private func configureHeaderView() {
@@ -40,13 +53,14 @@ class SearchVC: UIViewController {
         ])
 
         configureHeaderViewContent()
-        configureBodyView()
     }
 
     private func configureHeaderViewContent() {
         headerView.addSubview(questionLabel)
         headerView.addSubview(ingredientsTextField)
         headerView.addSubview(addButton)
+
+        ingredientsTextField.delegate = self
 
         let padding: CGFloat = 30
         let internalPadding: CGFloat = 20
@@ -76,6 +90,8 @@ class SearchVC: UIViewController {
         view.addSubview(ingredientsListLabel)
         view.addSubview(callToActionButton)
 
+        callToActionButton.addTarget(self, action: #selector(pushRecipeListVC), for: .touchUpInside)
+
         let padding: CGFloat = 20
         let height: CGFloat = 40
 
@@ -100,5 +116,12 @@ class SearchVC: UIViewController {
             ingredientsListLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -2*padding),
             ingredientsListLabel.heightAnchor.constraint(equalToConstant: 250)
         ])
+    }
+}
+
+extension SearchVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        ingredientsTextField.endEditing(true)
+        return true
     }
 }
