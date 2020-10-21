@@ -15,6 +15,7 @@
 		ADBC32D72540428400C837EA /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32D62540428400C837EA /* FavoritesVC.swift */; };
 		ADBC32DD25404EA600C837EA /* RPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32DC25404EA600C837EA /* RPButton.swift */; };
 		ADBC32E0254051E600C837EA /* RPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32DF254051E600C837EA /* RPTextField.swift */; };
+		ADBC32E32540656500C837EA /* RPLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32E22540656500C837EA /* RPLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		ADBC32D62540428400C837EA /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		ADBC32DC25404EA600C837EA /* RPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPButton.swift; sourceTree = "<group>"; };
 		ADBC32DF254051E600C837EA /* RPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTextField.swift; sourceTree = "<group>"; };
+		ADBC32E22540656500C837EA /* RPLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				ADBC32D62540428400C837EA /* FavoritesVC.swift */,
 				ADBC32DC25404EA600C837EA /* RPButton.swift */,
 				ADBC32DF254051E600C837EA /* RPTextField.swift */,
+				ADBC32E22540656500C837EA /* RPLabel.swift */,
 			);
 			path = Reciplease;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				ADBC32D42540419800C837EA /* SearchVC.swift in Sources */,
 				ADBC32BD25403EE800C837EA /* AppDelegate.swift in Sources */,
 				ADBC32DD25404EA600C837EA /* RPButton.swift in Sources */,
+				ADBC32E32540656500C837EA /* RPLabel.swift in Sources */,
 				ADBC32BF25403EE800C837EA /* SceneDelegate.swift in Sources */,
 				ADBC32E0254051E600C837EA /* RPTextField.swift in Sources */,
 			);
