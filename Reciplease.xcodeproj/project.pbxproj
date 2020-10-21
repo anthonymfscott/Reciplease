@@ -13,6 +13,8 @@
 		ADBC32C925403EE900C837EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADBC32C725403EE900C837EA /* LaunchScreen.storyboard */; };
 		ADBC32D42540419800C837EA /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32D32540419800C837EA /* SearchVC.swift */; };
 		ADBC32D72540428400C837EA /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32D62540428400C837EA /* FavoritesVC.swift */; };
+		ADBC32DD25404EA600C837EA /* RPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32DC25404EA600C837EA /* RPButton.swift */; };
+		ADBC32E0254051E600C837EA /* RPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32DF254051E600C837EA /* RPTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		ADBC32CA25403EE900C837EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADBC32D32540419800C837EA /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		ADBC32D62540428400C837EA /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
+		ADBC32DC25404EA600C837EA /* RPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPButton.swift; sourceTree = "<group>"; };
+		ADBC32DF254051E600C837EA /* RPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				ADBC32CA25403EE900C837EA /* Info.plist */,
 				ADBC32D32540419800C837EA /* SearchVC.swift */,
 				ADBC32D62540428400C837EA /* FavoritesVC.swift */,
+				ADBC32DC25404EA600C837EA /* RPButton.swift */,
+				ADBC32DF254051E600C837EA /* RPTextField.swift */,
 			);
 			path = Reciplease;
 			sourceTree = "<group>";
@@ -139,7 +145,9 @@
 				ADBC32D72540428400C837EA /* FavoritesVC.swift in Sources */,
 				ADBC32D42540419800C837EA /* SearchVC.swift in Sources */,
 				ADBC32BD25403EE800C837EA /* AppDelegate.swift in Sources */,
+				ADBC32DD25404EA600C837EA /* RPButton.swift in Sources */,
 				ADBC32BF25403EE800C837EA /* SceneDelegate.swift in Sources */,
+				ADBC32E0254051E600C837EA /* RPTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
