@@ -11,6 +11,7 @@
 		ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421F256272AE003CB377 /* RPBodyLabel.swift */; };
 		ADBB422325627379003CB377 /* RPAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB422225627379003CB377 /* RPAlertVC.swift */; };
 		ADBB4226256278C2003CB377 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB4225256278C2003CB377 /* UIViewController+Ext.swift */; };
+		ADBB423625629161003CB377 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB423525629161003CB377 /* IngredientCell.swift */; };
 		ADBC32BD25403EE800C837EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32BC25403EE800C837EA /* AppDelegate.swift */; };
 		ADBC32BF25403EE800C837EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32BE25403EE800C837EA /* SceneDelegate.swift */; };
 		ADBC32C625403EE900C837EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADBC32C525403EE900C837EA /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		ADBB421F256272AE003CB377 /* RPBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBodyLabel.swift; sourceTree = "<group>"; };
 		ADBB422225627379003CB377 /* RPAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertVC.swift; sourceTree = "<group>"; };
 		ADBB4225256278C2003CB377 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		ADBB423525629161003CB377 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		ADBC32B925403EE800C837EA /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBC32BC25403EE800C837EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADBC32BE25403EE800C837EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ADBB4229256281AB003CB377 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				ADBC32D32540419800C837EA /* SearchVC.swift */,
+				ADBC32D62540428400C837EA /* FavoritesVC.swift */,
+				ADBC32E62540CB3A00C837EA /* RecipeListVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		ADBB422A256281DD003CB377 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB422225627379003CB377 /* RPAlertVC.swift */,
+				ADBC32DF254051E600C837EA /* RPTextField.swift */,
+				ADBB421C2562716A003CB377 /* RPTitleLabel.swift */,
+				ADBB421F256272AE003CB377 /* RPBodyLabel.swift */,
+				ADBC32DC25404EA600C837EA /* RPButton.swift */,
+				ADBB423525629161003CB377 /* IngredientCell.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		ADBB422B2562820D003CB377 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB4225256278C2003CB377 /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ADBB422C2562826E003CB377 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				ADBC32BC25403EE800C837EA /* AppDelegate.swift */,
+				ADBC32BE25403EE800C837EA /* SceneDelegate.swift */,
+				ADBC32C525403EE900C837EA /* Assets.xcassets */,
+				ADBC32C725403EE900C837EA /* LaunchScreen.storyboard */,
+				ADBC32CA25403EE900C837EA /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		ADBC32B025403EE800C837EA = {
 			isa = PBXGroup;
 			children = (
@@ -70,20 +115,10 @@
 		ADBC32BB25403EE800C837EA /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
-				ADBC32BC25403EE800C837EA /* AppDelegate.swift */,
-				ADBC32BE25403EE800C837EA /* SceneDelegate.swift */,
-				ADBC32C525403EE900C837EA /* Assets.xcassets */,
-				ADBC32C725403EE900C837EA /* LaunchScreen.storyboard */,
-				ADBC32CA25403EE900C837EA /* Info.plist */,
-				ADBC32D32540419800C837EA /* SearchVC.swift */,
-				ADBC32D62540428400C837EA /* FavoritesVC.swift */,
-				ADBC32E62540CB3A00C837EA /* RecipeListVC.swift */,
-				ADBC32DC25404EA600C837EA /* RPButton.swift */,
-				ADBC32DF254051E600C837EA /* RPTextField.swift */,
-				ADBB421C2562716A003CB377 /* RPTitleLabel.swift */,
-				ADBB421F256272AE003CB377 /* RPBodyLabel.swift */,
-				ADBB422225627379003CB377 /* RPAlertVC.swift */,
-				ADBB4225256278C2003CB377 /* UIViewController+Ext.swift */,
+				ADBB4229256281AB003CB377 /* Screens */,
+				ADBB422A256281DD003CB377 /* Custom Views */,
+				ADBB422B2562820D003CB377 /* Extensions */,
+				ADBB422C2562826E003CB377 /* Support */,
 			);
 			path = Reciplease;
 			sourceTree = "<group>";
@@ -165,6 +200,7 @@
 				ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */,
 				ADBC32BD25403EE800C837EA /* AppDelegate.swift in Sources */,
 				ADBC32DD25404EA600C837EA /* RPButton.swift in Sources */,
+				ADBB423625629161003CB377 /* IngredientCell.swift in Sources */,
 				ADBC32BF25403EE800C837EA /* SceneDelegate.swift in Sources */,
 				ADBC32E0254051E600C837EA /* RPTextField.swift in Sources */,
 				ADBB422325627379003CB377 /* RPAlertVC.swift in Sources */,
@@ -308,7 +344,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVSADVSJ8H;
-				INFOPLIST_FILE = Reciplease/Info.plist;
+				INFOPLIST_FILE = Reciplease/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -327,7 +363,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVSADVSJ8H;
-				INFOPLIST_FILE = Reciplease/Info.plist;
+				INFOPLIST_FILE = Reciplease/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

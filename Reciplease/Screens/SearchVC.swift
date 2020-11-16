@@ -8,18 +8,20 @@
 import UIKit
 
 class SearchVC: UIViewController {
-
     let headerView = UIView()
     let questionLabel = RPTitleLabel(textAlignment: .center, fontSize: 32)
-    //let questionLabel = RPLabel(text: "What's in your fridge?", textStyle: .largeTitle, textAlignment: .center)
     let ingredientsTextField = RPTextField()
     let addButton = RPButton(backgroundColor: .systemGreen, title: "Add", font: .title3)
     let ingredientsLabel = RPTitleLabel(textAlignment: .left, fontSize: 24)
-    //let ingredientsLabel = RPTitleLabel(text: "Your ingredients:", textStyle: .title1, textAlignment: .left)
     let clearButton = RPButton(backgroundColor: .systemGray3, title: "Clear", font: .title3)
-    let ingredientsListLabel = RPBodyLabel(textAlignment: .left)
-//    let ingredientsListLabel = RPBodyLabel(text: "- Apple\n\n- Tomatoes\n\n- Curry\n\n- Chicken", textStyle: .title1, textAlignment: .left)
+    let ingredientsTableView = UITableView()
     let callToActionButton = RPButton(backgroundColor: .systemGreen, title: "Search for recipes", font: .title1)
+
+    var ingredients: [String] = ["Pili pili", "Chick peas", "Courgette"]
+
+    let padding: CGFloat = 30
+    let internalPadding: CGFloat = 20
+    let height: CGFloat = 40
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,10 +69,6 @@ class SearchVC: UIViewController {
 
         ingredientsTextField.delegate = self
 
-        let padding: CGFloat = 30
-        let internalPadding: CGFloat = 20
-        let height: CGFloat = 40
-
         NSLayoutConstraint.activate([
             questionLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: padding),
             questionLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
@@ -94,15 +92,19 @@ class SearchVC: UIViewController {
         ingredientsLabel.text = "Your ingredients:"
 
         view.addSubview(clearButton)
-        view.addSubview(ingredientsListLabel)
-        ingredientsListLabel.text = "- Apple\n\n- Tomatoes\n\n- Curry\n\n- Chicken"
+
+        view.addSubview(ingredientsTableView)
+        ingredientsTableView.frame = view.bounds
+        ingredientsTableView.layer.cornerRadius = 20
+        ingredientsTableView.rowHeight = 50
+        ingredientsTableView.delegate = self
+        ingredientsTableView.dataSource = self
+        ingredientsTableView.register(IngredientCell.self, forCellReuseIdentifier: IngredientCell.reuseID)
+        ingredientsTableView.translatesAutoresizingMaskIntoConstraints = false
 
         view.addSubview(callToActionButton)
 
         callToActionButton.addTarget(self, action: #selector(pushRecipeListVC), for: .touchUpInside)
-
-        let padding: CGFloat = 20
-        let height: CGFloat = 40
 
         NSLayoutConstraint.activate([
             ingredientsLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
@@ -120,10 +122,10 @@ class SearchVC: UIViewController {
             callToActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             callToActionButton.heightAnchor.constraint(equalToConstant: 60),
 
-            ingredientsListLabel.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: padding),
-            ingredientsListLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 2*padding),
-            ingredientsListLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -2*padding),
-            ingredientsListLabel.heightAnchor.constraint(equalToConstant: 250)
+            ingredientsTableView.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: padding),
+            ingredientsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 2*padding),
+            ingredientsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -2*padding),
+            ingredientsTableView.bottomAnchor.constraint(equalTo: callToActionButton.topAnchor, constant: -30)
         ])
     }
 }
@@ -132,5 +134,17 @@ extension SearchVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         ingredientsTextField.endEditing(true)
         return true
+    }
+}
+
+extension SearchVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ingredients.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = ingredientsTableView.dequeueReusableCell(withIdentifier: IngredientCell.reuseID) as! IngredientCell
+        cell.textLabel?.text = ingredients[indexPath.row]
+        return cell
     }
 }

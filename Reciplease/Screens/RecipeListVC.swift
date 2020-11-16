@@ -1,5 +1,5 @@
 //
-//  FavoritesVC.swift
+//  RecipeListVC.swift
 //  Reciplease
 //
 //  Created by anthonymfscott on 21/10/2020.
@@ -7,14 +7,11 @@
 
 import UIKit
 
-class FavoritesVC: UIViewController {
-
+class RecipeListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Reciplease"
-        view.backgroundColor = .systemGreen
+        view.backgroundColor = .systemRed
     }
-    
-
 }
