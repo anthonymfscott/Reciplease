@@ -10,12 +10,15 @@ import UIKit
 class SearchVC: UIViewController {
 
     let headerView = UIView()
-    let questionLabel = RPLabel(text: "What's in your fridge?", textStyle: .largeTitle, textAlignment: .center)
+    let questionLabel = RPTitleLabel(textAlignment: .center, fontSize: 32)
+    //let questionLabel = RPLabel(text: "What's in your fridge?", textStyle: .largeTitle, textAlignment: .center)
     let ingredientsTextField = RPTextField()
     let addButton = RPButton(backgroundColor: .systemGreen, title: "Add", font: .title3)
-    let ingredientsLabel = RPLabel(text: "Your ingredients:", textStyle: .title1, textAlignment: .left)
+    let ingredientsLabel = RPTitleLabel(textAlignment: .left, fontSize: 24)
+    //let ingredientsLabel = RPTitleLabel(text: "Your ingredients:", textStyle: .title1, textAlignment: .left)
     let clearButton = RPButton(backgroundColor: .systemGray3, title: "Clear", font: .title3)
-    let ingredientsListLabel = RPLabel(text: "- Apple\n\n- Tomatoes\n\n- Curry\n\n- Chicken", textStyle: .title1, textAlignment: .left)
+    let ingredientsListLabel = RPBodyLabel(textAlignment: .left)
+//    let ingredientsListLabel = RPBodyLabel(text: "- Apple\n\n- Tomatoes\n\n- Curry\n\n- Chicken", textStyle: .title1, textAlignment: .left)
     let callToActionButton = RPButton(backgroundColor: .systemGreen, title: "Search for recipes", font: .title1)
 
     override func viewDidLoad() {
@@ -57,6 +60,8 @@ class SearchVC: UIViewController {
 
     private func configureHeaderViewContent() {
         headerView.addSubview(questionLabel)
+        questionLabel.text = "What's in your fridge?"
+
         headerView.addSubview(ingredientsTextField)
         headerView.addSubview(addButton)
 
@@ -86,8 +91,12 @@ class SearchVC: UIViewController {
 
     private func configureBodyView() {
         view.addSubview(ingredientsLabel)
+        ingredientsLabel.text = "Your ingredients:"
+
         view.addSubview(clearButton)
         view.addSubview(ingredientsListLabel)
+        ingredientsListLabel.text = "- Apple\n\n- Tomatoes\n\n- Curry\n\n- Chicken"
+
         view.addSubview(callToActionButton)
 
         callToActionButton.addTarget(self, action: #selector(pushRecipeListVC), for: .touchUpInside)

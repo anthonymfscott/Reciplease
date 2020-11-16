@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ADBB421D2562716A003CB377 /* RPTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421C2562716A003CB377 /* RPTitleLabel.swift */; };
+		ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421F256272AE003CB377 /* RPBodyLabel.swift */; };
+		ADBB422325627379003CB377 /* RPAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB422225627379003CB377 /* RPAlertVC.swift */; };
+		ADBB4226256278C2003CB377 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB4225256278C2003CB377 /* UIViewController+Ext.swift */; };
 		ADBC32BD25403EE800C837EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32BC25403EE800C837EA /* AppDelegate.swift */; };
 		ADBC32BF25403EE800C837EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32BE25403EE800C837EA /* SceneDelegate.swift */; };
 		ADBC32C625403EE900C837EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADBC32C525403EE900C837EA /* Assets.xcassets */; };
@@ -15,11 +19,14 @@
 		ADBC32D72540428400C837EA /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32D62540428400C837EA /* FavoritesVC.swift */; };
 		ADBC32DD25404EA600C837EA /* RPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32DC25404EA600C837EA /* RPButton.swift */; };
 		ADBC32E0254051E600C837EA /* RPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32DF254051E600C837EA /* RPTextField.swift */; };
-		ADBC32E32540656500C837EA /* RPLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32E22540656500C837EA /* RPLabel.swift */; };
 		ADBC32E72540CB3A00C837EA /* RecipeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32E62540CB3A00C837EA /* RecipeListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ADBB421C2562716A003CB377 /* RPTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTitleLabel.swift; sourceTree = "<group>"; };
+		ADBB421F256272AE003CB377 /* RPBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBodyLabel.swift; sourceTree = "<group>"; };
+		ADBB422225627379003CB377 /* RPAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertVC.swift; sourceTree = "<group>"; };
+		ADBB4225256278C2003CB377 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		ADBC32B925403EE800C837EA /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBC32BC25403EE800C837EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADBC32BE25403EE800C837EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,7 +37,6 @@
 		ADBC32D62540428400C837EA /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		ADBC32DC25404EA600C837EA /* RPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPButton.swift; sourceTree = "<group>"; };
 		ADBC32DF254051E600C837EA /* RPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTextField.swift; sourceTree = "<group>"; };
-		ADBC32E22540656500C837EA /* RPLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLabel.swift; sourceTree = "<group>"; };
 		ADBC32E62540CB3A00C837EA /* RecipeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,10 +77,13 @@
 				ADBC32CA25403EE900C837EA /* Info.plist */,
 				ADBC32D32540419800C837EA /* SearchVC.swift */,
 				ADBC32D62540428400C837EA /* FavoritesVC.swift */,
+				ADBC32E62540CB3A00C837EA /* RecipeListVC.swift */,
 				ADBC32DC25404EA600C837EA /* RPButton.swift */,
 				ADBC32DF254051E600C837EA /* RPTextField.swift */,
-				ADBC32E22540656500C837EA /* RPLabel.swift */,
-				ADBC32E62540CB3A00C837EA /* RecipeListVC.swift */,
+				ADBB421C2562716A003CB377 /* RPTitleLabel.swift */,
+				ADBB421F256272AE003CB377 /* RPBodyLabel.swift */,
+				ADBB422225627379003CB377 /* RPAlertVC.swift */,
+				ADBB4225256278C2003CB377 /* UIViewController+Ext.swift */,
 			);
 			path = Reciplease;
 			sourceTree = "<group>";
@@ -150,12 +159,15 @@
 			files = (
 				ADBC32D72540428400C837EA /* FavoritesVC.swift in Sources */,
 				ADBC32D42540419800C837EA /* SearchVC.swift in Sources */,
+				ADBB4226256278C2003CB377 /* UIViewController+Ext.swift in Sources */,
 				ADBC32E72540CB3A00C837EA /* RecipeListVC.swift in Sources */,
+				ADBB421D2562716A003CB377 /* RPTitleLabel.swift in Sources */,
+				ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */,
 				ADBC32BD25403EE800C837EA /* AppDelegate.swift in Sources */,
 				ADBC32DD25404EA600C837EA /* RPButton.swift in Sources */,
-				ADBC32E32540656500C837EA /* RPLabel.swift in Sources */,
 				ADBC32BF25403EE800C837EA /* SceneDelegate.swift in Sources */,
 				ADBC32E0254051E600C837EA /* RPTextField.swift in Sources */,
+				ADBB422325627379003CB377 /* RPAlertVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

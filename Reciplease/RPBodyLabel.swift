@@ -1,13 +1,13 @@
 //
-//  RPTitleLabel.swift
+//  RPBodyLabel.swift
 //  Reciplease
 //
-//  Created by anthonymfscott on 21/10/2020.
+//  Created by anthonymfscott on 16/11/2020.
 //
 
 import UIKit
 
-class RPLabel: UILabel {
+class RPBodyLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,18 +18,19 @@ class RPLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
 
-    init(text: String, textStyle: UIFont.TextStyle, textAlignment: NSTextAlignment) {
+    init(textAlignment: NSTextAlignment) {
         super.init(frame: .zero)
-        self.text = text
-        self.font = UIFont.preferredFont(forTextStyle: textStyle)
         self.textAlignment = textAlignment
         configure()
     }
 
     private func configure() {
-        translatesAutoresizingMaskIntoConstraints = false
-
-        textColor = .label
+        textColor = .secondaryLabel
+        font = UIFont.preferredFont(forTextStyle: .body)
+        adjustsFontSizeToFitWidth = true
+        minimumScaleFactor = 0.75
         numberOfLines = 0
+        lineBreakMode = .byWordWrapping
+        translatesAutoresizingMaskIntoConstraints = false
     }
 }
