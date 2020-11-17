@@ -20,7 +20,6 @@ class IngredientCell: UITableViewCell {
     }
 
     private func configure() {
-        accessoryType = .checkmark
         textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
     }
 }

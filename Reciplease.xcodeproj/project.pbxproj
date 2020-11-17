@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ADA14C6A256326CB00CB76D7 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C69256326CB00CB76D7 /* Recipe.swift */; };
+		ADA14C6F2563BCCD00CB76D7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */; };
 		ADBB421D2562716A003CB377 /* RPTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421C2562716A003CB377 /* RPTitleLabel.swift */; };
 		ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421F256272AE003CB377 /* RPBodyLabel.swift */; };
 		ADBB422325627379003CB377 /* RPAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB422225627379003CB377 /* RPAlertVC.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ADA14C69256326CB00CB76D7 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ADBB421C2562716A003CB377 /* RPTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTitleLabel.swift; sourceTree = "<group>"; };
 		ADBB421F256272AE003CB377 /* RPBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBodyLabel.swift; sourceTree = "<group>"; };
 		ADBB422225627379003CB377 /* RPAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertVC.swift; sourceTree = "<group>"; };
@@ -53,6 +57,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ADA14C68256326BA00CB76D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ADA14C69256326CB00CB76D7 /* Recipe.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ADA14C6D2563BCB800CB76D7 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		ADBB4229256281AB003CB377 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +135,8 @@
 		ADBC32BB25403EE800C837EA /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
+				ADA14C6D2563BCB800CB76D7 /* Managers */,
+				ADA14C68256326BA00CB76D7 /* Model */,
 				ADBB4229256281AB003CB377 /* Screens */,
 				ADBB422A256281DD003CB377 /* Custom Views */,
 				ADBB422B2562820D003CB377 /* Extensions */,
@@ -202,6 +224,8 @@
 				ADBC32DD25404EA600C837EA /* RPButton.swift in Sources */,
 				ADBB423625629161003CB377 /* IngredientCell.swift in Sources */,
 				ADBC32BF25403EE800C837EA /* SceneDelegate.swift in Sources */,
+				ADA14C6F2563BCCD00CB76D7 /* NetworkManager.swift in Sources */,
+				ADA14C6A256326CB00CB76D7 /* Recipe.swift in Sources */,
 				ADBC32E0254051E600C837EA /* RPTextField.swift in Sources */,
 				ADBB422325627379003CB377 /* RPAlertVC.swift in Sources */,
 			);

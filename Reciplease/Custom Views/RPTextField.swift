@@ -27,7 +27,7 @@ class RPTextField: UITextField {
 
         textColor = .label
         tintColor = .label
-        textAlignment = .left
+        textAlignment = .center
         font = UIFont.preferredFont(forTextStyle: .title2)
 
         backgroundColor = .tertiarySystemBackground

@@ -17,7 +17,7 @@ class SearchVC: UIViewController {
     let ingredientsTableView = UITableView()
     let callToActionButton = RPButton(backgroundColor: .systemGreen, title: "Search for recipes", font: .title1)
 
-    var ingredients: [String] = ["Pili pili", "Chick peas", "Courgette"]
+    var ingredients: [String] = []
 
     let padding: CGFloat = 30
     let internalPadding: CGFloat = 20
@@ -41,6 +41,8 @@ class SearchVC: UIViewController {
 
     @objc private func pushRecipeListVC() {
         let recipeListVC = RecipeListVC()
+        let ingredientsList = ingredients.joined(separator: ",")
+        recipeListVC.ingredientsList = ingredientsList
 
         navigationController?.pushViewController(recipeListVC, animated: true)
     }
@@ -67,6 +69,8 @@ class SearchVC: UIViewController {
         headerView.addSubview(ingredientsTextField)
         headerView.addSubview(addButton)
 
+        addButton.addTarget(self, action: #selector(addIngredientToIngredientsTableView), for: .touchUpInside)
+
         ingredientsTextField.delegate = self
 
         NSLayoutConstraint.activate([
@@ -87,11 +91,23 @@ class SearchVC: UIViewController {
         ])
     }
 
+    @objc func addIngredientToIngredientsTableView() {
+        guard ingredientsTextField.text != "" else { return }
+
+        if let ingredient = ingredientsTextField.text {
+            ingredients.append(ingredient)
+            ingredientsTableView.reloadData()
+            ingredientsTextField.text = nil
+            ingredientsTextField.placeholder = nil
+        }
+    }
+
     private func configureBodyView() {
         view.addSubview(ingredientsLabel)
         ingredientsLabel.text = "Your ingredients:"
 
         view.addSubview(clearButton)
+        clearButton.addTarget(self, action: #selector(clearIngredientsTableView), for: .touchUpInside)
 
         view.addSubview(ingredientsTableView)
         ingredientsTableView.frame = view.bounds
@@ -128,11 +144,17 @@ class SearchVC: UIViewController {
             ingredientsTableView.bottomAnchor.constraint(equalTo: callToActionButton.topAnchor, constant: -30)
         ])
     }
+
+    @objc func clearIngredientsTableView() {
+        ingredients.removeAll()
+        ingredientsTableView.reloadData()
+    }
 }
 
 extension SearchVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         ingredientsTextField.endEditing(true)
+        addIngredientToIngredientsTableView()
         return true
     }
 }
