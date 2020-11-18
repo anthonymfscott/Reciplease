@@ -13,27 +13,27 @@ class NetworkManager {
 
     private init() {}
 
-    func getRecipes(for ingredients: String, completed: @escaping ([Recipe]?, String?) -> Void) {
+    func getRecipes(for ingredients: String, completed: @escaping (Result<[Recipe], RPError>) -> Void) {
         let endpoint = baseUrl + "&q=\(ingredients)"
 
         guard let url = URL(string: endpoint) else {
-            completed(nil, "These ingredients created an invalid request. Please try again.")
+            completed(.failure(.invalidRequest))
             return
         }
 
         let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
             if let _ = error {
-                completed(nil, "Unable to complete your request. Please check your internet connection.")
+                completed(.failure(.unableToComplete))
                 return
             }
 
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(nil, "Invalid response from the server. Please try again.")
+                completed(.failure(.invalidResponse))
                 return
             }
 
             guard let data = data else {
-                completed(nil, "The data received from the server was invalid. Please try again.")
+                completed(.failure(.invalidData))
                 return
             }
 
@@ -42,9 +42,9 @@ class NetworkManager {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let recipeResponse = try decoder.decode(RecipeResponse.self, from: data)
                 let recipes = recipeResponse.hits
-                completed(recipes, nil)
+                completed(.success(recipes))
             } catch {
-                completed(nil, "The data received from the server was invalid (decoding). Please try again.")
+                completed(.failure(.invalidData))
             }
         })
 

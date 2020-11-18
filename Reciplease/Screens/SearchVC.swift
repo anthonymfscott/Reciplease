@@ -39,6 +39,22 @@ class SearchVC: UIViewController {
         view.addGestureRecognizer(tap)
     }
 
+    @objc private func addIngredientToIngredientsTableView() {
+        guard ingredientsTextField.text != "" else { return }
+
+        if let ingredient = ingredientsTextField.text {
+            ingredients.append(ingredient)
+            ingredientsTableView.reloadData()
+            ingredientsTextField.text = nil
+            ingredientsTextField.placeholder = nil
+        }
+    }
+
+    @objc private func clearIngredientsTableView() {
+        ingredients.removeAll()
+        ingredientsTableView.reloadData()
+    }
+
     @objc private func pushRecipeListVC() {
         let recipeListVC = RecipeListVC()
         let ingredientsList = ingredients.joined(separator: ",")
@@ -91,17 +107,6 @@ class SearchVC: UIViewController {
         ])
     }
 
-    @objc func addIngredientToIngredientsTableView() {
-        guard ingredientsTextField.text != "" else { return }
-
-        if let ingredient = ingredientsTextField.text {
-            ingredients.append(ingredient)
-            ingredientsTableView.reloadData()
-            ingredientsTextField.text = nil
-            ingredientsTextField.placeholder = nil
-        }
-    }
-
     private func configureBodyView() {
         view.addSubview(ingredientsLabel)
         ingredientsLabel.text = "Your ingredients:"
@@ -143,11 +148,6 @@ class SearchVC: UIViewController {
             ingredientsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -2*padding),
             ingredientsTableView.bottomAnchor.constraint(equalTo: callToActionButton.topAnchor, constant: -30)
         ])
-    }
-
-    @objc func clearIngredientsTableView() {
-        ingredients.removeAll()
-        ingredientsTableView.reloadData()
     }
 }
 

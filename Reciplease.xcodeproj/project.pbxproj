@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		ADA14C6A256326CB00CB76D7 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C69256326CB00CB76D7 /* Recipe.swift */; };
 		ADA14C6F2563BCCD00CB76D7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */; };
+		ADA14C732563D1C500CB76D7 /* RPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C722563D1C500CB76D7 /* RPError.swift */; };
+		ADA14C7A25657B5900CB76D7 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C7925657B5900CB76D7 /* RecipeCell.swift */; };
+		ADA14C7D25657C2300CB76D7 /* RPRecipeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C7C25657C2300CB76D7 /* RPRecipeImageView.swift */; };
+		ADA14C802565C02000CB76D7 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C7F2565C02000CB76D7 /* UIHelper.swift */; };
 		ADBB421D2562716A003CB377 /* RPTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421C2562716A003CB377 /* RPTitleLabel.swift */; };
 		ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421F256272AE003CB377 /* RPBodyLabel.swift */; };
 		ADBB422325627379003CB377 /* RPAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB422225627379003CB377 /* RPAlertVC.swift */; };
@@ -28,6 +32,10 @@
 /* Begin PBXFileReference section */
 		ADA14C69256326CB00CB76D7 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		ADA14C722563D1C500CB76D7 /* RPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPError.swift; sourceTree = "<group>"; };
+		ADA14C7925657B5900CB76D7 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
+		ADA14C7C25657C2300CB76D7 /* RPRecipeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPRecipeImageView.swift; sourceTree = "<group>"; };
+		ADA14C7F2565C02000CB76D7 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		ADBB421C2562716A003CB377 /* RPTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTitleLabel.swift; sourceTree = "<group>"; };
 		ADBB421F256272AE003CB377 /* RPBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBodyLabel.swift; sourceTree = "<group>"; };
 		ADBB422225627379003CB377 /* RPAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertVC.swift; sourceTree = "<group>"; };
@@ -73,6 +81,24 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		ADA14C712563D1B800CB76D7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				ADA14C722563D1C500CB76D7 /* RPError.swift */,
+				ADA14C7F2565C02000CB76D7 /* UIHelper.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		ADA14C7825657B3C00CB76D7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB423525629161003CB377 /* IngredientCell.swift */,
+				ADA14C7925657B5900CB76D7 /* RecipeCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		ADBB4229256281AB003CB377 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,12 +112,13 @@
 		ADBB422A256281DD003CB377 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				ADA14C7825657B3C00CB76D7 /* Cells */,
 				ADBB422225627379003CB377 /* RPAlertVC.swift */,
 				ADBC32DF254051E600C837EA /* RPTextField.swift */,
 				ADBB421C2562716A003CB377 /* RPTitleLabel.swift */,
 				ADBB421F256272AE003CB377 /* RPBodyLabel.swift */,
 				ADBC32DC25404EA600C837EA /* RPButton.swift */,
-				ADBB423525629161003CB377 /* IngredientCell.swift */,
+				ADA14C7C25657C2300CB76D7 /* RPRecipeImageView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -135,10 +162,11 @@
 		ADBC32BB25403EE800C837EA /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
-				ADA14C6D2563BCB800CB76D7 /* Managers */,
 				ADA14C68256326BA00CB76D7 /* Model */,
 				ADBB4229256281AB003CB377 /* Screens */,
 				ADBB422A256281DD003CB377 /* Custom Views */,
+				ADA14C6D2563BCB800CB76D7 /* Managers */,
+				ADA14C712563D1B800CB76D7 /* Utilities */,
 				ADBB422B2562820D003CB377 /* Extensions */,
 				ADBB422C2562826E003CB377 /* Support */,
 			);
@@ -217,10 +245,14 @@
 				ADBC32D72540428400C837EA /* FavoritesVC.swift in Sources */,
 				ADBC32D42540419800C837EA /* SearchVC.swift in Sources */,
 				ADBB4226256278C2003CB377 /* UIViewController+Ext.swift in Sources */,
+				ADA14C7A25657B5900CB76D7 /* RecipeCell.swift in Sources */,
 				ADBC32E72540CB3A00C837EA /* RecipeListVC.swift in Sources */,
+				ADA14C802565C02000CB76D7 /* UIHelper.swift in Sources */,
 				ADBB421D2562716A003CB377 /* RPTitleLabel.swift in Sources */,
+				ADA14C7D25657C2300CB76D7 /* RPRecipeImageView.swift in Sources */,
 				ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */,
 				ADBC32BD25403EE800C837EA /* AppDelegate.swift in Sources */,
+				ADA14C732563D1C500CB76D7 /* RPError.swift in Sources */,
 				ADBC32DD25404EA600C837EA /* RPButton.swift in Sources */,
 				ADBB423625629161003CB377 /* IngredientCell.swift in Sources */,
 				ADBC32BF25403EE800C837EA /* SceneDelegate.swift in Sources */,
