@@ -27,13 +27,23 @@ class RecipeListVC: UIViewController {
     }
 
     func getRecipes(ingredientsList: String, page: Int) {
+        showLoadingView()
+
         NetworkManager.shared.getRecipes(for: ingredientsList, page: page) { [weak self] result in
+            self?.dismissLoadingView()
+            
             guard let self = self else { return }
 
             switch result {
             case .success(let recipes):
                 if recipes.count < 10 { self.containsMoreRecipes = false }
                 self.recipes.append(contentsOf: recipes)
+
+                if self.recipes.isEmpty {
+                    let message = "This search didn't bring any results. Please try again with other ingredients."
+                    DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
+                    return
+                }
                 self.updateData()
             case .failure(let error):
                 self.presentRPAlertOnMainThread(title: "Something bad happened", message: error.rawValue, buttonTitle: "OK")
