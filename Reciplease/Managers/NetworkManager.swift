@@ -14,8 +14,11 @@ class NetworkManager {
 
     private init() {}
 
-    func getRecipes(for ingredients: String, completed: @escaping (Result<[Recipe], RPError>) -> Void) {
-        let endpoint = baseUrl + "&q=\(ingredients)"
+    func getRecipes(for ingredients: String, page: Int, completed: @escaping (Result<[Recipe], RPError>) -> Void) {
+        let firstElement = page*10 - 10
+        let lastElement = page*10
+
+        let endpoint = baseUrl + "&q=\(ingredients)&from=\(firstElement)&to=\(lastElement)"
 
         guard let url = URL(string: endpoint) else {
             completed(.failure(.invalidRequest))

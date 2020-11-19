@@ -11,27 +11,29 @@ class RecipeListVC: UIViewController {
     enum Section { case main }
 
     var ingredientsList: String!
-    var collectionView: UICollectionView!
-
-    var dataSource: UICollectionViewDiffableDataSource<Section, Recipe>!
-
     var recipes: [Recipe] = []
+    var page = 1
+    var containsMoreRecipes = true
+
+    var collectionView: UICollectionView!
+    var dataSource: UICollectionViewDiffableDataSource<Section, Recipe>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
         configureCollectionView()
-        getRecipes()
+        getRecipes(ingredientsList: ingredientsList, page: page)
         configureDataSource()
     }
 
-    func getRecipes() {
-        NetworkManager.shared.getRecipes(for: ingredientsList) { [weak self] result in
+    func getRecipes(ingredientsList: String, page: Int) {
+        NetworkManager.shared.getRecipes(for: ingredientsList, page: page) { [weak self] result in
             guard let self = self else { return }
 
             switch result {
             case .success(let recipes):
-                self.recipes = recipes
+                if recipes.count < 10 { self.containsMoreRecipes = false }
+                self.recipes.append(contentsOf: recipes)
                 self.updateData()
             case .failure(let error):
                 self.presentRPAlertOnMainThread(title: "Something bad happened", message: error.rawValue, buttonTitle: "OK")
@@ -46,6 +48,7 @@ class RecipeListVC: UIViewController {
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createFlowLayout(in: view))
         view.addSubview(collectionView)
+        collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
         collectionView.register(RecipeCell.self, forCellWithReuseIdentifier: RecipeCell.reuseID)
     }
@@ -63,5 +66,19 @@ class RecipeListVC: UIViewController {
         snapshot.appendSections([.main])
         snapshot.appendItems(recipes)
         DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
+    }
+}
+
+extension RecipeListVC: UICollectionViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+
+        if offsetY > contentHeight - height {
+            guard containsMoreRecipes else { return }
+            page += 1
+            getRecipes(ingredientsList: ingredientsList, page: page)
+        }
     }
 }
