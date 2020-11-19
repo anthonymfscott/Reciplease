@@ -15,6 +15,7 @@
 		ADA14C802565C02000CB76D7 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C7F2565C02000CB76D7 /* UIHelper.swift */; };
 		ADA14C89256684EE00CB76D7 /* RPEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C88256684EE00CB76D7 /* RPEmptyStateView.swift */; };
 		ADA14C8D2566A4DA00CB76D7 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C8C2566A4DA00CB76D7 /* DetailVC.swift */; };
+		ADA14C922566E6A200CB76D7 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C912566E6A200CB76D7 /* PersistenceManager.swift */; };
 		ADBB421D2562716A003CB377 /* RPTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421C2562716A003CB377 /* RPTitleLabel.swift */; };
 		ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421F256272AE003CB377 /* RPBodyLabel.swift */; };
 		ADBB422325627379003CB377 /* RPAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB422225627379003CB377 /* RPAlertVC.swift */; };
@@ -40,6 +41,7 @@
 		ADA14C7F2565C02000CB76D7 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		ADA14C88256684EE00CB76D7 /* RPEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPEmptyStateView.swift; sourceTree = "<group>"; };
 		ADA14C8C2566A4DA00CB76D7 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		ADA14C912566E6A200CB76D7 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		ADBB421C2562716A003CB377 /* RPTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTitleLabel.swift; sourceTree = "<group>"; };
 		ADBB421F256272AE003CB377 /* RPBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBodyLabel.swift; sourceTree = "<group>"; };
 		ADBB422225627379003CB377 /* RPAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertVC.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */,
+				ADA14C912566E6A200CB76D7 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				ADA14C732563D1C500CB76D7 /* RPError.swift in Sources */,
 				ADBC32DD25404EA600C837EA /* RPButton.swift in Sources */,
 				ADBB423625629161003CB377 /* IngredientCell.swift in Sources */,
+				ADA14C922566E6A200CB76D7 /* PersistenceManager.swift in Sources */,
 				ADBC32BF25403EE800C837EA /* SceneDelegate.swift in Sources */,
 				ADA14C6F2563BCCD00CB76D7 /* NetworkManager.swift in Sources */,
 				ADA14C6A256326CB00CB76D7 /* Recipe.swift in Sources */,

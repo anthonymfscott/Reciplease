@@ -20,8 +20,12 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
         navigationItem.rightBarButtonItem = doneButton
+
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.leftBarButtonItem = addButton
 
         configure()
         configureCallToActionButton()
@@ -88,7 +92,18 @@ class DetailVC: UIViewController {
             ingredientsListLabel.trailingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: -padding),
             ingredientsListLabel.bottomAnchor.constraint(equalTo: callToActionButton.topAnchor, constant: -padding)
         ])
-
     }
 
+    @objc private func addButtonTapped() {
+        PersistenceManager.updateWith(favorite: recipe, actionType: .add) { [weak self] error in
+            guard let self = self else { return }
+
+            guard let error = error else {
+                self.presentRPAlertOnMainThread(title: "Success!", message: "You have successfully favorited this recipe 😋", buttonTitle: "Yummy!")
+                return
+            }
+
+            self.presentRPAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
+        }
+    }
 }
