@@ -91,4 +91,12 @@ extension RecipeListVC: UICollectionViewDelegate {
             getRecipes(ingredientsList: ingredientsList, page: page)
         }
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let recipe = recipes[indexPath.item]
+        let detailVC = DetailVC()
+        detailVC.recipe = recipe
+        let navController = UINavigationController(rootViewController: detailVC)
+        present(navController, animated: true)
+    }
 }

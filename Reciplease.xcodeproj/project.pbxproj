@@ -14,6 +14,7 @@
 		ADA14C7D25657C2300CB76D7 /* RPRecipeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C7C25657C2300CB76D7 /* RPRecipeImageView.swift */; };
 		ADA14C802565C02000CB76D7 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C7F2565C02000CB76D7 /* UIHelper.swift */; };
 		ADA14C89256684EE00CB76D7 /* RPEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C88256684EE00CB76D7 /* RPEmptyStateView.swift */; };
+		ADA14C8D2566A4DA00CB76D7 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C8C2566A4DA00CB76D7 /* DetailVC.swift */; };
 		ADBB421D2562716A003CB377 /* RPTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421C2562716A003CB377 /* RPTitleLabel.swift */; };
 		ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421F256272AE003CB377 /* RPBodyLabel.swift */; };
 		ADBB422325627379003CB377 /* RPAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB422225627379003CB377 /* RPAlertVC.swift */; };
@@ -38,6 +39,7 @@
 		ADA14C7C25657C2300CB76D7 /* RPRecipeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPRecipeImageView.swift; sourceTree = "<group>"; };
 		ADA14C7F2565C02000CB76D7 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		ADA14C88256684EE00CB76D7 /* RPEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPEmptyStateView.swift; sourceTree = "<group>"; };
+		ADA14C8C2566A4DA00CB76D7 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		ADBB421C2562716A003CB377 /* RPTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTitleLabel.swift; sourceTree = "<group>"; };
 		ADBB421F256272AE003CB377 /* RPBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBodyLabel.swift; sourceTree = "<group>"; };
 		ADBB422225627379003CB377 /* RPAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertVC.swift; sourceTree = "<group>"; };
@@ -154,8 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				ADBC32D32540419800C837EA /* SearchVC.swift */,
-				ADBC32D62540428400C837EA /* FavoritesVC.swift */,
 				ADBC32E62540CB3A00C837EA /* RecipeListVC.swift */,
+				ADA14C8C2566A4DA00CB76D7 /* DetailVC.swift */,
+				ADBC32D62540428400C837EA /* FavoritesVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				ADBC32E72540CB3A00C837EA /* RecipeListVC.swift in Sources */,
 				ADA14C802565C02000CB76D7 /* UIHelper.swift in Sources */,
 				ADBB421D2562716A003CB377 /* RPTitleLabel.swift in Sources */,
+				ADA14C8D2566A4DA00CB76D7 /* DetailVC.swift in Sources */,
 				ADA14C7D25657C2300CB76D7 /* RPRecipeImageView.swift in Sources */,
 				ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */,
 				ADA14C89256684EE00CB76D7 /* RPEmptyStateView.swift in Sources */,
