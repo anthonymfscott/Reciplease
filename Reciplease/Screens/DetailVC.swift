@@ -24,10 +24,24 @@ class DetailVC: UIViewController {
         navigationItem.rightBarButtonItem = doneButton
 
         configure()
+        configureCallToActionButton()
     }
 
     @objc private func dismissVC() {
         dismiss(animated: true)
+    }
+
+    private func configureCallToActionButton() {
+        callToActionButton.addTarget(self, action: #selector(callToActionButtonTapped), for: .touchUpInside)
+    }
+
+    @objc private func callToActionButtonTapped() {
+        guard let url = URL(string: recipe.recipe.url) else {
+            presentRPAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "OK")
+            return
+        }
+
+        presentSafariVC(with: url)
     }
 
     private func configure() {
