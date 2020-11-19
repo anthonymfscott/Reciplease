@@ -5,11 +5,12 @@
 //  Created by anthonymfscott on 17/11/2020.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
     static let shared = NetworkManager()
-    let baseUrl = "https://api.edamam.com/search?app_id=96a4d08a&app_key=ebb19acb80a975dba752f611e2e88b37"
+    private let baseUrl = "https://api.edamam.com/search?app_id=96a4d08a&app_key=ebb19acb80a975dba752f611e2e88b37"
+    let cache = NSCache<NSString, UIImage>()
 
     private init() {}
 

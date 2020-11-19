@@ -33,13 +33,13 @@ class RecipeCell: UICollectionViewCell {
         addSubview(recipeLabel)
         recipeLabel.textColor = .white
         recipeLabel.shadowColor = .black
-        recipeLabel.shadowOffset = CGSize(width: 1.4, height: 1.4)
+        recipeLabel.shadowOffset = CGSize(width: 1.6, height: 1.6)
         addSubview(ingredientsLabel)
         ingredientsLabel.textColor = .white
         ingredientsLabel.shadowColor = .black
-        ingredientsLabel.shadowOffset = CGSize(width: 0.8, height: 0.8)
+        ingredientsLabel.shadowOffset = CGSize(width: 1, height: 1)
 
-        let padding: CGFloat = 20
+        let padding: CGFloat = 10
 
         NSLayoutConstraint.activate([
             recipeImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -47,7 +47,7 @@ class RecipeCell: UICollectionViewCell {
             recipeImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             recipeImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
-            ingredientsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            ingredientsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             ingredientsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             ingredientsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -60),
             ingredientsLabel.heightAnchor.constraint(equalToConstant: 16),
