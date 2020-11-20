@@ -8,6 +8,7 @@
 import UIKit
 
 class DetailVC: UIViewController {
+
     var recipe: Recipe!
 
     let recipeImageView = RPRecipeImageView(frame: .zero)
@@ -17,9 +18,9 @@ class DetailVC: UIViewController {
     let ingredientsListLabel = RPBodyLabel(textAlignment: .left)
     let callToActionButton = RPButton(backgroundColor: .systemGreen, title: "Get directions", font: .title1)
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .systemBackground
 
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
@@ -32,13 +33,17 @@ class DetailVC: UIViewController {
         configureCallToActionButton()
     }
 
+
     @objc private func dismissVC() {
         dismiss(animated: true)
     }
 
+
     private func configureCallToActionButton() {
         callToActionButton.addTarget(self, action: #selector(callToActionButtonTapped), for: .touchUpInside)
+        callToActionButton.titleLabel?.font = UIFont(name: "Cooker Cake Demo", size: 44)
     }
+
 
     @objc private func callToActionButtonTapped() {
         guard let url = URL(string: recipe.recipe.url) else {
@@ -48,6 +53,7 @@ class DetailVC: UIViewController {
 
         presentSafariVC(with: url)
     }
+
 
     private func configure() {
         view.addSubviews(recipeImageView, recipeLabel, ingredientsTitleLabel, ingredientsScrollView, callToActionButton)
@@ -102,6 +108,7 @@ class DetailVC: UIViewController {
         ])
     }
 
+    
     @objc private func addButtonTapped() {
         PersistenceManager.updateWith(favorite: recipe, actionType: .add) { [weak self] error in
             guard let self = self else { return }

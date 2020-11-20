@@ -8,19 +8,24 @@
 import UIKit
 
 class RecipeCell: UICollectionViewCell {
+
     static let reuseID = "RecipeCell"
+
     let recipeImageView = RPRecipeImageView(frame: .zero)
-    let recipeLabel = RPTitleLabel(textAlignment: .left, fontSize: 24)
-    let ingredientsLabel = RPTitleLabel(textAlignment: .left, fontSize: 12)
+    let recipeLabel = RPTitleLabel(textAlignment: .left, fontSize: 28)
+    let ingredientsLabel = RPTitleLabel(textAlignment: .left, fontSize: 16)
+
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
 
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
 
     func set(recipe: Recipe) {
         recipeLabel.text = recipe.recipe.label
@@ -32,6 +37,7 @@ class RecipeCell: UICollectionViewCell {
         }
     }
 
+    
     private func configure() {
         addSubviews(recipeImageView, recipeLabel, ingredientsLabel)
 
@@ -54,12 +60,12 @@ class RecipeCell: UICollectionViewCell {
             ingredientsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             ingredientsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             ingredientsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -60),
-            ingredientsLabel.heightAnchor.constraint(equalToConstant: 16),
+            ingredientsLabel.heightAnchor.constraint(equalToConstant: 20),
 
             recipeLabel.bottomAnchor.constraint(equalTo: ingredientsLabel.topAnchor),
             recipeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             recipeLabel.trailingAnchor.constraint(equalTo: ingredientsLabel.trailingAnchor),
-            recipeLabel.heightAnchor.constraint(equalToConstant: 28)
+            recipeLabel.heightAnchor.constraint(equalToConstant: 32)
         ])
     }
 }

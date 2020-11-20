@@ -8,6 +8,7 @@
 import UIKit
 
 class RecipeListVC: RPDataLoadingVC {
+
     enum Section { case main }
 
     var ingredientsList: String!
@@ -19,24 +20,35 @@ class RecipeListVC: RPDataLoadingVC {
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Recipe>!
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViewController()
+        title = "Results"
+
         configureCollectionView()
         getRecipes(ingredientsList: ingredientsList, page: page)
         configureDataSource()
     }
 
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Cooker Cake Demo", size: 44)!]
+    }
+
+
     init(ingredientsList: String) {
         super.init(nibName: nil, bundle: nil)
-
         self.ingredientsList = ingredientsList
     }
-    
+
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+
     func getRecipes(ingredientsList: String, page: Int) {
         showLoadingView()
         isLoadingMoreRecipes = true
@@ -65,9 +77,6 @@ class RecipeListVC: RPDataLoadingVC {
         }
     }
 
-    private func configureViewController() {
-        title = "Reciplease"
-    }
 
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createFlowLayout(in: view))
@@ -77,6 +86,7 @@ class RecipeListVC: RPDataLoadingVC {
         collectionView.register(RecipeCell.self, forCellWithReuseIdentifier: RecipeCell.reuseID)
     }
 
+
     private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Recipe>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, recipe) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeCell.reuseID, for: indexPath) as! RecipeCell
@@ -84,6 +94,7 @@ class RecipeListVC: RPDataLoadingVC {
             return cell
         })
     }
+
 
     func updateData() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
@@ -93,7 +104,9 @@ class RecipeListVC: RPDataLoadingVC {
     }
 }
 
+
 extension RecipeListVC: UICollectionViewDelegate {
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height

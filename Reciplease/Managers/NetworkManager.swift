@@ -8,11 +8,13 @@
 import UIKit
 
 class NetworkManager {
+
     static let shared = NetworkManager()
     private let baseUrl = "https://api.edamam.com/search?app_id=96a4d08a&app_key=ebb19acb80a975dba752f611e2e88b37"
     let cache = NSCache<NSString, UIImage>()
 
     private init() {}
+
 
     func getRecipes(for ingredients: String, page: Int, completed: @escaping (Result<[Recipe], RPError>) -> Void) {
         let firstElement = page*10 - 10
@@ -55,6 +57,7 @@ class NetworkManager {
         task.resume()
     }
 
+    
     func downloadImage(from urlString: String?, completed: @escaping (UIImage?) -> Void) {
         guard let urlString = urlString else { return }
 

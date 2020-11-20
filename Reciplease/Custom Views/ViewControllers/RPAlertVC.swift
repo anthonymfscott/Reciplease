@@ -56,6 +56,7 @@ class RPAlertVC: UIViewController {
         ])
     }
 
+
     private func configureTitleLabel() {
         titleLabel.text = alertTitle ?? "Something went wrong"
 
@@ -66,6 +67,7 @@ class RPAlertVC: UIViewController {
             titleLabel.heightAnchor.constraint(equalToConstant: 28)
         ])
     }
+
 
     private func configurActionButton() {
         actionButton.setTitle(buttonTitle ?? "OK", for: .normal)
@@ -79,6 +81,7 @@ class RPAlertVC: UIViewController {
         ])
     }
 
+
     private func configureMessageLabel() {
         messageLabel.text = message ?? "Unable to complete request"
         messageLabel.numberOfLines = 4
@@ -91,6 +94,7 @@ class RPAlertVC: UIViewController {
         ])
     }
 
+    
     @objc func dismissVC() {
         dismiss(animated: true)
     }

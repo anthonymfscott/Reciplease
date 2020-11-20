@@ -8,6 +8,7 @@
 import UIKit
 
 class FavoritesVC: RPDataLoadingVC {
+
     enum Section { case main }
 
     var favorites: [Recipe] = []
@@ -15,25 +16,22 @@ class FavoritesVC: RPDataLoadingVC {
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Recipe>!
 
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-
         retrieveFavorites()
     }
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Cooker Cake Demo", size: 44)!]
 
-        title = "Reciplease"
-
-        configureViewController()
         configureCollectionView()
         configureDataSource()
     }
 
-    private func configureViewController() {
-        title = "Reciplease"
-    }
 
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createFlowLayout(in: view))
@@ -43,6 +41,7 @@ class FavoritesVC: RPDataLoadingVC {
         collectionView.register(RecipeCell.self, forCellWithReuseIdentifier: RecipeCell.reuseID)
     }
 
+
     private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Recipe>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, recipe) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeCell.reuseID, for: indexPath) as! RecipeCell
@@ -51,12 +50,14 @@ class FavoritesVC: RPDataLoadingVC {
         })
     }
 
+
     func updateData() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
         snapshot.appendSections([.main])
         snapshot.appendItems(favorites)
         DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
     }
+
 
     private func retrieveFavorites() {
         PersistenceManager.retrieveFavorites { [weak self] result in
@@ -76,7 +77,9 @@ class FavoritesVC: RPDataLoadingVC {
     }
 }
 
+
 extension FavoritesVC: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipe = favorites[indexPath.item]
         let detailVC = DetailVC()

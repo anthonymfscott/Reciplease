@@ -16,6 +16,7 @@ class RPTabBarController: UITabBarController {
         viewControllers = [createSearchNC(), createFavoritesNC()]
     }
 
+
     func createSearchNC() -> UINavigationController {
         let searchVC = SearchVC()
         searchVC.title = "Search"
@@ -24,6 +25,7 @@ class RPTabBarController: UITabBarController {
         return UINavigationController(rootViewController: searchVC)
     }
 
+    
     func createFavoritesNC() -> UINavigationController {
         let favoritesVC = FavoritesVC()
         favoritesVC.title = "Favorites"

@@ -20,6 +20,7 @@
 		ADA14C992567C08400CB76D7 /* RPAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C982567C08400CB76D7 /* RPAlertContainerView.swift */; };
 		ADA14C9C2567CC7300CB76D7 /* RPDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C9B2567CC7300CB76D7 /* RPDataLoadingVC.swift */; };
 		ADA14C9F2567DB5200CB76D7 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C9E2567DB5200CB76D7 /* UIView+Ext.swift */; };
+		ADA14CA42568584400CB76D7 /* Cooker Cake Demo.otf in Resources */ = {isa = PBXBuildFile; fileRef = ADA14CA32568584400CB76D7 /* Cooker Cake Demo.otf */; };
 		ADBB421D2562716A003CB377 /* RPTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421C2562716A003CB377 /* RPTitleLabel.swift */; };
 		ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421F256272AE003CB377 /* RPBodyLabel.swift */; };
 		ADBB422325627379003CB377 /* RPAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB422225627379003CB377 /* RPAlertVC.swift */; };
@@ -50,6 +51,7 @@
 		ADA14C982567C08400CB76D7 /* RPAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertContainerView.swift; sourceTree = "<group>"; };
 		ADA14C9B2567CC7300CB76D7 /* RPDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPDataLoadingVC.swift; sourceTree = "<group>"; };
 		ADA14C9E2567DB5200CB76D7 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		ADA14CA32568584400CB76D7 /* Cooker Cake Demo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cooker Cake Demo.otf"; sourceTree = "<group>"; };
 		ADBB421C2562716A003CB377 /* RPTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTitleLabel.swift; sourceTree = "<group>"; };
 		ADBB421F256272AE003CB377 /* RPBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBodyLabel.swift; sourceTree = "<group>"; };
 		ADBB422225627379003CB377 /* RPAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertVC.swift; sourceTree = "<group>"; };
@@ -173,6 +175,14 @@
 			path = TabBarControllers;
 			sourceTree = "<group>";
 		};
+		ADA14CA22568582C00CB76D7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				ADA14CA32568584400CB76D7 /* Cooker Cake Demo.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		ADBB4229256281AB003CB377 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +221,7 @@
 		ADBB422C2562826E003CB377 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				ADA14CA22568582C00CB76D7 /* Fonts */,
 				ADBC32BC25403EE800C837EA /* AppDelegate.swift */,
 				ADBC32BE25403EE800C837EA /* SceneDelegate.swift */,
 				ADBC32C525403EE900C837EA /* Assets.xcassets */,
@@ -308,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADBC32C925403EE900C837EA /* LaunchScreen.storyboard in Resources */,
+				ADA14CA42568584400CB76D7 /* Cooker Cake Demo.otf in Resources */,
 				ADBC32C625403EE900C837EA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

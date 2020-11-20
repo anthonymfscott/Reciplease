@@ -7,16 +7,14 @@
 
 import Foundation
 
-enum PersistenceActionType {
-    case add, remove
-}
+enum PersistenceActionType { case add, remove }
 
 enum PersistenceManager {
+
     static private let defaults = UserDefaults.standard
 
-    enum Keys {
-        static let favorites = "favorites"
-    }
+    enum Keys { static let favorites = "favorites" }
+
 
     static func updateWith(favorite: Recipe, actionType: PersistenceActionType, completed: @escaping (RPError?) -> Void) {
         retrieveFavorites { result in
@@ -39,6 +37,7 @@ enum PersistenceManager {
         }
     }
 
+
     static func retrieveFavorites(completed: @escaping (Result<[Recipe], RPError>) -> Void) {
         guard let favoritesData = defaults.object(forKey: Keys.favorites) as? Data else {
             completed(.success([]))
@@ -54,6 +53,7 @@ enum PersistenceManager {
         }
     }
 
+    
     static func save(favorites: [Recipe]) -> RPError? {
         do {
             let encoder = JSONEncoder()
