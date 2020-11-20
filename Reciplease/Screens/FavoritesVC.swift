@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesVC: UIViewController {
+class FavoritesVC: RPDataLoadingVC {
     enum Section { case main }
 
     var favorites: [Recipe] = []

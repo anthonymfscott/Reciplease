@@ -18,12 +18,11 @@ class RPButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 
-    init(backgroundColor: UIColor, title: String, font: UIFont.TextStyle) {
-        super.init(frame: .zero)
+    convenience init(backgroundColor: UIColor, title: String, font: UIFont.TextStyle) {
+        self.init(frame: .zero)
         self.backgroundColor = backgroundColor
         setTitle(title, for: .normal)
         titleLabel?.font = UIFont.preferredFont(forTextStyle: font)
-        configure()
     }
 
     private func configure() {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecipeListVC: UIViewController {
+class RecipeListVC: RPDataLoadingVC {
     enum Section { case main }
 
     var ingredientsList: String!
@@ -26,6 +26,16 @@ class RecipeListVC: UIViewController {
         configureDataSource()
     }
 
+    init(ingredientsList: String) {
+        super.init(nibName: nil, bundle: nil)
+
+        self.ingredientsList = ingredientsList
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func getRecipes(ingredientsList: String, page: Int) {
         showLoadingView()
 

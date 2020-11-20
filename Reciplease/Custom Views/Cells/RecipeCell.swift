@@ -23,9 +23,13 @@ class RecipeCell: UICollectionViewCell {
     }
 
     func set(recipe: Recipe) {
-        if let url = recipe.recipe.image { recipeImageView.downloadImage(from: url) }
         recipeLabel.text = recipe.recipe.label
         ingredientsLabel.text = recipe.recipe.ingredientLines.joined(separator: ", ")
+
+        NetworkManager.shared.downloadImage(from: recipe.recipe.image) { [weak self] image in
+            guard let self = self else { return }
+            DispatchQueue.main.async { self.recipeImageView.image = image }
+        }
     }
 
     private func configure() {

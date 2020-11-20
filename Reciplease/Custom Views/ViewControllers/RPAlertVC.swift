@@ -9,7 +9,7 @@ import UIKit
 
 class RPAlertVC: UIViewController {
 
-    let containerView = UIView()
+    let containerView = RPAlertContainerView()
     let titleLabel = RPTitleLabel(textAlignment: .center, fontSize: 20)
     let messageLabel = RPBodyLabel(textAlignment: .center)
     let actionButton = RPButton(backgroundColor: .systemGreen, title: "OK", font: .body)
@@ -20,6 +20,7 @@ class RPAlertVC: UIViewController {
 
     let padding: CGFloat = 20
 
+
     init(title: String, message: String, buttonTitle: String) {
         super.init(nibName: nil, bundle: nil)
         alertTitle = title
@@ -27,26 +28,24 @@ class RPAlertVC: UIViewController {
         self.buttonTitle = buttonTitle
     }
 
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         configureContainerView()
         configureTitleLabel()
         configurActionButton()
         configureMessageLabel()
     }
+
     
     private func configureContainerView() {
         view.addSubview(containerView)
-        containerView.backgroundColor = .systemBackground
-        containerView.layer.cornerRadius = 16
-        containerView.layer.borderWidth = 2
-        containerView.layer.borderColor = UIColor.white.cgColor
-        containerView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),

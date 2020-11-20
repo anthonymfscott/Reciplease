@@ -31,11 +31,9 @@ class RPTextField: UITextField {
         font = UIFont.preferredFont(forTextStyle: .title2)
 
         backgroundColor = .tertiarySystemBackground
-
         autocorrectionType = .no
-
-        placeholder = "Lemon, Cheese, Sausages, ..."
-
         returnKeyType = .done
+        clearButtonMode = .whileEditing
+        placeholder = "Lemon, Cheese, Sausages, ..."
     }
 }

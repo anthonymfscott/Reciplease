@@ -50,7 +50,10 @@ class DetailVC: UIViewController {
 
     private func configure() {
         view.addSubview(recipeImageView)
-        if let url = recipe.recipe.image { recipeImageView.downloadImage(from: url) } 
+        NetworkManager.shared.downloadImage(from: recipe.recipe.image) { [weak self] image in
+            guard let self = self else { return }
+            DispatchQueue.main.async { self.recipeImageView.image = image }
+        }
         view.addSubview(recipeLabel)
         recipeLabel.text = recipe.recipe.label
         recipeLabel.textColor = .white

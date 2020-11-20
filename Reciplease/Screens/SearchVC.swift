@@ -34,8 +34,14 @@ class SearchVC: UIViewController {
         createDismissKeyboardTapGesture()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+
+        ingredientsTextField.text = ""
+    }
+
     private func createDismissKeyboardTapGesture() {
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
 
@@ -56,9 +62,8 @@ class SearchVC: UIViewController {
     }
 
     @objc private func pushRecipeListVC() {
-        let recipeListVC = RecipeListVC()
         let ingredientsList = ingredients.joined(separator: ",")
-        recipeListVC.ingredientsList = ingredientsList
+        let recipeListVC = RecipeListVC(ingredientsList: ingredientsList)
 
         navigationController?.pushViewController(recipeListVC, animated: true)
     }

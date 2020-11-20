@@ -1,26 +1,30 @@
 //
-//  RPRecipeImageView.swift
+//  RPAlertContainerView.swift
 //  Reciplease
 //
-//  Created by anthonymfscott on 18/11/2020.
+//  Created by anthonymfscott on 20/11/2020.
 //
 
 import UIKit
 
-class RPRecipeImageView: UIImageView {
+class RPAlertContainerView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
 
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+
     private func configure() {
+        backgroundColor = .systemBackground
+        layer.cornerRadius = 16
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.white.cgColor
         translatesAutoresizingMaskIntoConstraints = false
-        clipsToBounds = true
-        contentMode = .scaleAspectFill
     }
 }
