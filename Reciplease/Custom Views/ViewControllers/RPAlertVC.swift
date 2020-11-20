@@ -46,6 +46,7 @@ class RPAlertVC: UIViewController {
     
     private func configureContainerView() {
         view.addSubview(containerView)
+        containerView.addSubviews(titleLabel, actionButton, messageLabel)
 
         NSLayoutConstraint.activate([
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -56,7 +57,6 @@ class RPAlertVC: UIViewController {
     }
 
     private func configureTitleLabel() {
-        containerView.addSubview(titleLabel)
         titleLabel.text = alertTitle ?? "Something went wrong"
 
         NSLayoutConstraint.activate([
@@ -68,7 +68,6 @@ class RPAlertVC: UIViewController {
     }
 
     private func configurActionButton() {
-        containerView.addSubview(actionButton)
         actionButton.setTitle(buttonTitle ?? "OK", for: .normal)
         actionButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
 
@@ -81,7 +80,6 @@ class RPAlertVC: UIViewController {
     }
 
     private func configureMessageLabel() {
-        containerView.addSubview(messageLabel)
         messageLabel.text = message ?? "Unable to complete request"
         messageLabel.numberOfLines = 4
 

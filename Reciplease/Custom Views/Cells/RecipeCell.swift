@@ -33,12 +33,12 @@ class RecipeCell: UICollectionViewCell {
     }
 
     private func configure() {
-        addSubview(recipeImageView)
-        addSubview(recipeLabel)
+        addSubviews(recipeImageView, recipeLabel, ingredientsLabel)
+
         recipeLabel.textColor = .white
         recipeLabel.shadowColor = .black
         recipeLabel.shadowOffset = CGSize(width: 1.6, height: 1.6)
-        addSubview(ingredientsLabel)
+
         ingredientsLabel.textColor = .white
         ingredientsLabel.shadowColor = .black
         ingredientsLabel.shadowOffset = CGSize(width: 1, height: 1)

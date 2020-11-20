@@ -13,6 +13,7 @@ class DetailVC: UIViewController {
     let recipeImageView = RPRecipeImageView(frame: .zero)
     let recipeLabel = RPTitleLabel(textAlignment: .center, fontSize: 32)
     let ingredientsTitleLabel = RPTitleLabel(textAlignment: .left, fontSize: 24)
+    let ingredientsScrollView = UIScrollView()
     let ingredientsListLabel = RPBodyLabel(textAlignment: .left)
     let callToActionButton = RPButton(backgroundColor: .systemGreen, title: "Get directions", font: .title1)
 
@@ -49,21 +50,25 @@ class DetailVC: UIViewController {
     }
 
     private func configure() {
-        view.addSubview(recipeImageView)
+        view.addSubviews(recipeImageView, recipeLabel, ingredientsTitleLabel, ingredientsScrollView, callToActionButton)
+
         NetworkManager.shared.downloadImage(from: recipe.recipe.image) { [weak self] image in
             guard let self = self else { return }
             DispatchQueue.main.async { self.recipeImageView.image = image }
         }
-        view.addSubview(recipeLabel)
+
         recipeLabel.text = recipe.recipe.label
         recipeLabel.textColor = .white
         recipeLabel.shadowColor = .black
         recipeLabel.shadowOffset = CGSize(width: 1.8, height: 1.8)
-        view.addSubview(ingredientsTitleLabel)
+
         ingredientsTitleLabel.text = "Ingredients:"
-        view.addSubview(ingredientsListLabel)
+
+        ingredientsScrollView.translatesAutoresizingMaskIntoConstraints = false
+        ingredientsScrollView.addSubview(ingredientsListLabel)
+
         ingredientsListLabel.text = "- " + recipe.recipe.ingredientLines.joined(separator: "\n- ")
-        view.addSubview(callToActionButton)
+        ingredientsListLabel.pinToEdges(of: ingredientsScrollView)
 
         let padding: CGFloat = 16
 
@@ -90,10 +95,10 @@ class DetailVC: UIViewController {
             callToActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             callToActionButton.heightAnchor.constraint(equalToConstant: 60),
 
-            ingredientsListLabel.topAnchor.constraint(equalTo: ingredientsTitleLabel.bottomAnchor),
-            ingredientsListLabel.leadingAnchor.constraint(equalTo: recipeImageView.leadingAnchor, constant: padding),
-            ingredientsListLabel.trailingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: -padding),
-            ingredientsListLabel.bottomAnchor.constraint(equalTo: callToActionButton.topAnchor, constant: -padding)
+            ingredientsScrollView.topAnchor.constraint(equalTo: ingredientsTitleLabel.bottomAnchor, constant: 10),
+            ingredientsScrollView.leadingAnchor.constraint(equalTo: recipeImageView.leadingAnchor, constant: padding),
+            ingredientsScrollView.trailingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: -padding),
+            ingredientsScrollView.bottomAnchor.constraint(equalTo: callToActionButton.topAnchor, constant: -padding),
         ])
     }
 

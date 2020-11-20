@@ -14,6 +14,7 @@ class RecipeListVC: RPDataLoadingVC {
     var recipes: [Recipe] = []
     var page = 1
     var containsMoreRecipes = true
+    var isLoadingMoreRecipes = false
 
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Recipe>!
@@ -38,6 +39,7 @@ class RecipeListVC: RPDataLoadingVC {
     
     func getRecipes(ingredientsList: String, page: Int) {
         showLoadingView()
+        isLoadingMoreRecipes = true
 
         NetworkManager.shared.getRecipes(for: ingredientsList, page: page) { [weak self] result in
             self?.dismissLoadingView()
@@ -58,6 +60,8 @@ class RecipeListVC: RPDataLoadingVC {
             case .failure(let error):
                 self.presentRPAlertOnMainThread(title: "Something bad happened", message: error.rawValue, buttonTitle: "OK")
             }
+
+            self.isLoadingMoreRecipes = false
         }
     }
 
@@ -96,7 +100,7 @@ extension RecipeListVC: UICollectionViewDelegate {
         let height = scrollView.frame.size.height
 
         if offsetY > contentHeight - height {
-            guard containsMoreRecipes else { return }
+            guard containsMoreRecipes && !isLoadingMoreRecipes else { return }
             page += 1
             getRecipes(ingredientsList: ingredientsList, page: page)
         }

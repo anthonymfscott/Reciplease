@@ -8,10 +8,12 @@
 import UIKit
 
 class SearchVC: UIViewController {
+
     let headerView = UIView()
     let questionLabel = RPTitleLabel(textAlignment: .center, fontSize: 32)
     let ingredientsTextField = RPTextField()
     let addButton = RPButton(backgroundColor: .systemGreen, title: "Add", font: .title3)
+
     let ingredientsLabel = RPTitleLabel(textAlignment: .left, fontSize: 24)
     let clearButton = RPButton(backgroundColor: .systemGray3, title: "Clear", font: .title3)
     let ingredientsTableView = UITableView()
@@ -22,6 +24,7 @@ class SearchVC: UIViewController {
     let padding: CGFloat = 30
     let internalPadding: CGFloat = 20
     let height: CGFloat = 40
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +37,19 @@ class SearchVC: UIViewController {
         createDismissKeyboardTapGesture()
     }
 
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
         ingredientsTextField.text = ""
     }
 
+
     private func createDismissKeyboardTapGesture() {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
+
 
     @objc private func addIngredientToIngredientsTableView() {
         guard ingredientsTextField.text != "" else { return }
@@ -56,10 +62,12 @@ class SearchVC: UIViewController {
         }
     }
 
+
     @objc private func clearIngredientsTableView() {
         ingredients.removeAll()
         ingredientsTableView.reloadData()
     }
+
 
     @objc private func pushRecipeListVC() {
         let ingredientsList = ingredients.joined(separator: ",")
@@ -67,6 +75,7 @@ class SearchVC: UIViewController {
 
         navigationController?.pushViewController(recipeListVC, animated: true)
     }
+
 
     private func configureHeaderView() {
         view.addSubview(headerView)
@@ -80,31 +89,41 @@ class SearchVC: UIViewController {
             headerView.heightAnchor.constraint(equalToConstant: 165)
         ])
 
-        configureHeaderViewContent()
+        headerView.addSubviews(questionLabel, addButton, ingredientsTextField)
+        configureQuestionLabel()
+        configureAddButton()
+        configureIngredientsTextField()
     }
 
-    private func configureHeaderViewContent() {
-        headerView.addSubview(questionLabel)
+
+    private func configureQuestionLabel() {
         questionLabel.text = "What's in your fridge?"
-
-        headerView.addSubview(ingredientsTextField)
-        headerView.addSubview(addButton)
-
-        addButton.addTarget(self, action: #selector(addIngredientToIngredientsTableView), for: .touchUpInside)
-
-        ingredientsTextField.delegate = self
 
         NSLayoutConstraint.activate([
             questionLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: padding),
             questionLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
             questionLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
-            questionLabel.heightAnchor.constraint(equalToConstant: height),
+            questionLabel.heightAnchor.constraint(equalToConstant: height)
+        ])
+    }
 
+
+    private func configureAddButton() {
+        addButton.addTarget(self, action: #selector(addIngredientToIngredientsTableView), for: .touchUpInside)
+
+        NSLayoutConstraint.activate([
             addButton.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -padding),
             addButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -internalPadding),
             addButton.widthAnchor.constraint(equalToConstant: 70),
-            addButton.heightAnchor.constraint(equalToConstant: height),
+            addButton.heightAnchor.constraint(equalToConstant: height)
+        ])
+    }
 
+
+    private func configureIngredientsTextField() {
+        ingredientsTextField.delegate = self
+
+        NSLayoutConstraint.activate([
             ingredientsTextField.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -padding),
             ingredientsTextField.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: internalPadding),
             ingredientsTextField.trailingAnchor.constraint(equalTo: addButton.leadingAnchor, constant: -10),
@@ -112,14 +131,14 @@ class SearchVC: UIViewController {
         ])
     }
 
+    
     private func configureBodyView() {
-        view.addSubview(ingredientsLabel)
+        view.addSubviews(ingredientsLabel, clearButton, ingredientsTableView, callToActionButton)
+
         ingredientsLabel.text = "Your ingredients:"
 
-        view.addSubview(clearButton)
         clearButton.addTarget(self, action: #selector(clearIngredientsTableView), for: .touchUpInside)
 
-        view.addSubview(ingredientsTableView)
         ingredientsTableView.frame = view.bounds
         ingredientsTableView.layer.cornerRadius = 20
         ingredientsTableView.rowHeight = 50
@@ -127,8 +146,6 @@ class SearchVC: UIViewController {
         ingredientsTableView.dataSource = self
         ingredientsTableView.register(IngredientCell.self, forCellReuseIdentifier: IngredientCell.reuseID)
         ingredientsTableView.translatesAutoresizingMaskIntoConstraints = false
-
-        view.addSubview(callToActionButton)
 
         callToActionButton.addTarget(self, action: #selector(pushRecipeListVC), for: .touchUpInside)
 
