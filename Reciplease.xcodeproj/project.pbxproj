@@ -7,24 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ADA1154B2571172A00611418 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA1154A2571172A00611418 /* Constants.swift */; };
 		ADA14C6A256326CB00CB76D7 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C69256326CB00CB76D7 /* Recipe.swift */; };
 		ADA14C6F2563BCCD00CB76D7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */; };
 		ADA14C732563D1C500CB76D7 /* RPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C722563D1C500CB76D7 /* RPError.swift */; };
 		ADA14C7A25657B5900CB76D7 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C7925657B5900CB76D7 /* RecipeCell.swift */; };
 		ADA14C7D25657C2300CB76D7 /* RPRecipeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C7C25657C2300CB76D7 /* RPRecipeImageView.swift */; };
-		ADA14C802565C02000CB76D7 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C7F2565C02000CB76D7 /* UIHelper.swift */; };
-		ADA14C89256684EE00CB76D7 /* RPEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C88256684EE00CB76D7 /* RPEmptyStateView.swift */; };
 		ADA14C8D2566A4DA00CB76D7 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C8C2566A4DA00CB76D7 /* DetailVC.swift */; };
-		ADA14C922566E6A200CB76D7 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C912566E6A200CB76D7 /* PersistenceManager.swift */; };
-		ADA14C962567B7CC00CB76D7 /* RPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C952567B7CC00CB76D7 /* RPTabBarController.swift */; };
-		ADA14C992567C08400CB76D7 /* RPAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C982567C08400CB76D7 /* RPAlertContainerView.swift */; };
-		ADA14C9C2567CC7300CB76D7 /* RPDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C9B2567CC7300CB76D7 /* RPDataLoadingVC.swift */; };
 		ADA14C9F2567DB5200CB76D7 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C9E2567DB5200CB76D7 /* UIView+Ext.swift */; };
 		ADA14CA42568584400CB76D7 /* Cooker Cake Demo.otf in Resources */ = {isa = PBXBuildFile; fileRef = ADA14CA32568584400CB76D7 /* Cooker Cake Demo.otf */; };
 		ADBB421D2562716A003CB377 /* RPTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421C2562716A003CB377 /* RPTitleLabel.swift */; };
 		ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB421F256272AE003CB377 /* RPBodyLabel.swift */; };
-		ADBB422325627379003CB377 /* RPAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB422225627379003CB377 /* RPAlertVC.swift */; };
-		ADBB4226256278C2003CB377 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB4225256278C2003CB377 /* UIViewController+Ext.swift */; };
 		ADBB423625629161003CB377 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB423525629161003CB377 /* IngredientCell.swift */; };
 		ADBC32BD25403EE800C837EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32BC25403EE800C837EA /* AppDelegate.swift */; };
 		ADBC32BF25403EE800C837EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32BE25403EE800C837EA /* SceneDelegate.swift */; };
@@ -38,24 +31,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ADA1154A2571172A00611418 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ADA14C69256326CB00CB76D7 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ADA14C722563D1C500CB76D7 /* RPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPError.swift; sourceTree = "<group>"; };
 		ADA14C7925657B5900CB76D7 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		ADA14C7C25657C2300CB76D7 /* RPRecipeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPRecipeImageView.swift; sourceTree = "<group>"; };
-		ADA14C7F2565C02000CB76D7 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
-		ADA14C88256684EE00CB76D7 /* RPEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPEmptyStateView.swift; sourceTree = "<group>"; };
 		ADA14C8C2566A4DA00CB76D7 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
-		ADA14C912566E6A200CB76D7 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
-		ADA14C952567B7CC00CB76D7 /* RPTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTabBarController.swift; sourceTree = "<group>"; };
-		ADA14C982567C08400CB76D7 /* RPAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertContainerView.swift; sourceTree = "<group>"; };
-		ADA14C9B2567CC7300CB76D7 /* RPDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPDataLoadingVC.swift; sourceTree = "<group>"; };
 		ADA14C9E2567DB5200CB76D7 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		ADA14CA32568584400CB76D7 /* Cooker Cake Demo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cooker Cake Demo.otf"; sourceTree = "<group>"; };
 		ADBB421C2562716A003CB377 /* RPTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTitleLabel.swift; sourceTree = "<group>"; };
 		ADBB421F256272AE003CB377 /* RPBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBodyLabel.swift; sourceTree = "<group>"; };
-		ADBB422225627379003CB377 /* RPAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertVC.swift; sourceTree = "<group>"; };
-		ADBB4225256278C2003CB377 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		ADBB423525629161003CB377 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		ADBC32B925403EE800C837EA /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBC32BC25403EE800C837EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */,
-				ADA14C912566E6A200CB76D7 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -102,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				ADA14C722563D1C500CB76D7 /* RPError.swift */,
-				ADA14C7F2565C02000CB76D7 /* UIHelper.swift */,
+				ADA1154A2571172A00611418 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -114,15 +99,6 @@
 				ADA14C7925657B5900CB76D7 /* RecipeCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		ADA14C822566842D00CB76D7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				ADA14C88256684EE00CB76D7 /* RPEmptyStateView.swift */,
-				ADA14C982567C08400CB76D7 /* RPAlertContainerView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		ADA14C832566843500CB76D7 /* Buttons */ = {
@@ -158,23 +134,6 @@
 			path = ImageViews;
 			sourceTree = "<group>";
 		};
-		ADA14C872566847000CB76D7 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				ADBB422225627379003CB377 /* RPAlertVC.swift */,
-				ADA14C9B2567CC7300CB76D7 /* RPDataLoadingVC.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		ADA14C942567B79200CB76D7 /* TabBarControllers */ = {
-			isa = PBXGroup;
-			children = (
-				ADA14C952567B7CC00CB76D7 /* RPTabBarController.swift */,
-			);
-			path = TabBarControllers;
-			sourceTree = "<group>";
-		};
 		ADA14CA22568582C00CB76D7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,7 +142,7 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		ADBB4229256281AB003CB377 /* Screens */ = {
+		ADBB4229256281AB003CB377 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				ADBC32D32540419800C837EA /* SearchVC.swift */,
@@ -191,29 +150,25 @@
 				ADA14C8C2566A4DA00CB76D7 /* DetailVC.swift */,
 				ADBC32D62540428400C837EA /* FavoritesVC.swift */,
 			);
-			path = Screens;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		ADBB422A256281DD003CB377 /* Custom Views */ = {
+		ADBB422A256281DD003CB377 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ADA14C822566842D00CB76D7 /* Views */,
 				ADA14C842566843A00CB76D7 /* Labels */,
 				ADA14C832566843500CB76D7 /* Buttons */,
 				ADA14C862566846100CB76D7 /* ImageViews */,
 				ADA14C852566845800CB76D7 /* TextFields */,
 				ADA14C7825657B3C00CB76D7 /* Cells */,
-				ADA14C872566847000CB76D7 /* ViewControllers */,
-				ADA14C942567B79200CB76D7 /* TabBarControllers */,
 			);
-			path = "Custom Views";
+			path = View;
 			sourceTree = "<group>";
 		};
 		ADBB422B2562820D003CB377 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				ADA14C9E2567DB5200CB76D7 /* UIView+Ext.swift */,
-				ADBB4225256278C2003CB377 /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -251,8 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				ADA14C68256326BA00CB76D7 /* Model */,
-				ADBB4229256281AB003CB377 /* Screens */,
-				ADBB422A256281DD003CB377 /* Custom Views */,
+				ADBB422A256281DD003CB377 /* View */,
+				ADBB4229256281AB003CB377 /* Controller */,
 				ADA14C6D2563BCB800CB76D7 /* Managers */,
 				ADA14C712563D1B800CB76D7 /* Utilities */,
 				ADBB422B2562820D003CB377 /* Extensions */,
@@ -333,29 +288,22 @@
 			files = (
 				ADBC32D72540428400C837EA /* FavoritesVC.swift in Sources */,
 				ADBC32D42540419800C837EA /* SearchVC.swift in Sources */,
-				ADBB4226256278C2003CB377 /* UIViewController+Ext.swift in Sources */,
-				ADA14C962567B7CC00CB76D7 /* RPTabBarController.swift in Sources */,
 				ADA14C7A25657B5900CB76D7 /* RecipeCell.swift in Sources */,
 				ADBC32E72540CB3A00C837EA /* RecipeListVC.swift in Sources */,
-				ADA14C802565C02000CB76D7 /* UIHelper.swift in Sources */,
-				ADA14C992567C08400CB76D7 /* RPAlertContainerView.swift in Sources */,
+				ADA1154B2571172A00611418 /* Constants.swift in Sources */,
 				ADBB421D2562716A003CB377 /* RPTitleLabel.swift in Sources */,
 				ADA14C8D2566A4DA00CB76D7 /* DetailVC.swift in Sources */,
 				ADA14C7D25657C2300CB76D7 /* RPRecipeImageView.swift in Sources */,
 				ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */,
 				ADA14C9F2567DB5200CB76D7 /* UIView+Ext.swift in Sources */,
-				ADA14C89256684EE00CB76D7 /* RPEmptyStateView.swift in Sources */,
 				ADBC32BD25403EE800C837EA /* AppDelegate.swift in Sources */,
 				ADA14C732563D1C500CB76D7 /* RPError.swift in Sources */,
 				ADBC32DD25404EA600C837EA /* RPButton.swift in Sources */,
 				ADBB423625629161003CB377 /* IngredientCell.swift in Sources */,
-				ADA14C922566E6A200CB76D7 /* PersistenceManager.swift in Sources */,
 				ADBC32BF25403EE800C837EA /* SceneDelegate.swift in Sources */,
-				ADA14C9C2567CC7300CB76D7 /* RPDataLoadingVC.swift in Sources */,
 				ADA14C6F2563BCCD00CB76D7 /* NetworkManager.swift in Sources */,
 				ADA14C6A256326CB00CB76D7 /* Recipe.swift in Sources */,
 				ADBC32E0254051E600C837EA /* RPTextField.swift in Sources */,
-				ADBB422325627379003CB377 /* RPAlertVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

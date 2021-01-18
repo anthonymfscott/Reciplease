@@ -6,9 +6,9 @@
 //
 
 import UIKit
+import SafariServices
 
 class DetailVC: UIViewController {
-
     var recipe: Recipe!
 
     let recipeImageView = RPRecipeImageView(frame: .zero)
@@ -24,36 +24,43 @@ class DetailVC: UIViewController {
         view.backgroundColor = .systemBackground
 
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
-        navigationItem.rightBarButtonItem = doneButton
+        navigationItem.leftBarButtonItem = doneButton
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
-        navigationItem.leftBarButtonItem = addButton
+        navigationItem.rightBarButtonItem = addButton
 
         configure()
         configureCallToActionButton()
     }
 
-
     @objc private func dismissVC() {
         dismiss(animated: true)
     }
 
+    @objc private func addButtonTapped() {
+        // Favorites functionality
+    }
 
     private func configureCallToActionButton() {
         callToActionButton.addTarget(self, action: #selector(callToActionButtonTapped), for: .touchUpInside)
-        callToActionButton.titleLabel?.font = UIFont(name: "Cooker Cake Demo", size: 44)
+        callToActionButton.titleLabel?.font = UIFont(name: Fonts.custom, size: 44)
     }
-
 
     @objc private func callToActionButtonTapped() {
         guard let url = URL(string: recipe.recipe.url) else {
-            presentRPAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "OK")
+            let alertVC = UIAlertController(title: "Invalid URL", message: "The url attached to this recipe is invalid.", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alertVC, animated: true)
             return
         }
 
-        presentSafariVC(with: url)
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemGreen
+        present(safariVC, animated: true)
     }
 
+
+    //MARK: UI Configuration
 
     private func configure() {
         view.addSubviews(recipeImageView, recipeLabel, ingredientsTitleLabel, ingredientsScrollView, callToActionButton)
@@ -106,19 +113,5 @@ class DetailVC: UIViewController {
             ingredientsScrollView.trailingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: -padding),
             ingredientsScrollView.bottomAnchor.constraint(equalTo: callToActionButton.topAnchor, constant: -padding),
         ])
-    }
-
-    
-    @objc private func addButtonTapped() {
-        PersistenceManager.updateWith(favorite: recipe, actionType: .add) { [weak self] error in
-            guard let self = self else { return }
-
-            guard let error = error else {
-                self.presentRPAlertOnMainThread(title: "Success!", message: "You have successfully favorited this recipe 😋", buttonTitle: "Yummy!")
-                return
-            }
-
-            self.presentRPAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
-        }
     }
 }

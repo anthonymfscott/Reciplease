@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recipe: Codable, Hashable {
+struct Recipe: Codable {
     let recipe: RecipeDetail
 }
 
@@ -15,7 +15,7 @@ struct RecipeResponse: Codable {
     let hits: [Recipe]
 }
 
-struct RecipeDetail: Codable, Hashable {
+struct RecipeDetail: Codable {
     let image: String?
     let label: String
     let ingredientLines: [String]

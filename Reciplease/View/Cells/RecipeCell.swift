@@ -7,8 +7,7 @@
 
 import UIKit
 
-class RecipeCell: UICollectionViewCell {
-
+class RecipeCell: UITableViewCell {
     static let reuseID = "RecipeCell"
 
     let recipeImageView = RPRecipeImageView(frame: .zero)
@@ -16,16 +15,14 @@ class RecipeCell: UICollectionViewCell {
     let ingredientsLabel = RPTitleLabel(textAlignment: .left, fontSize: 16)
 
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
     }
-
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 
     func set(recipe: Recipe) {
         recipeLabel.text = recipe.recipe.label
@@ -37,7 +34,6 @@ class RecipeCell: UICollectionViewCell {
         }
     }
 
-    
     private func configure() {
         addSubviews(recipeImageView, recipeLabel, ingredientsLabel)
 
@@ -52,18 +48,18 @@ class RecipeCell: UICollectionViewCell {
         let padding: CGFloat = 10
 
         NSLayoutConstraint.activate([
-            recipeImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            recipeImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            recipeImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            recipeImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            recipeImageView.topAnchor.constraint(equalTo: topAnchor),
+            recipeImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            recipeImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            recipeImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            ingredientsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            ingredientsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            ingredientsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -60),
+            ingredientsLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            ingredientsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            ingredientsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             ingredientsLabel.heightAnchor.constraint(equalToConstant: 20),
 
             recipeLabel.bottomAnchor.constraint(equalTo: ingredientsLabel.topAnchor),
-            recipeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            recipeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             recipeLabel.trailingAnchor.constraint(equalTo: ingredientsLabel.trailingAnchor),
             recipeLabel.heightAnchor.constraint(equalToConstant: 32)
         ])

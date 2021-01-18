@@ -8,27 +8,43 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = RPTabBarController()
+        window?.rootViewController = createTabBarController()
         window?.makeKeyAndVisible()
 
-        configureNavigationBar()
-    }
-
-
-    func configureNavigationBar() {
         UINavigationBar.appearance().tintColor = .systemGreen
     }
 
-    
+    func createTabBarController() -> UITabBarController {
+        UITabBar.appearance().tintColor = .systemGreen
+
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [createSearchNC(), createFavoritesNC()]
+        return tabBarController
+    }
+
+    func createSearchNC() -> UINavigationController {
+        let searchVC = SearchVC()
+        searchVC.title = "Search"
+        searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+
+        return UINavigationController(rootViewController: searchVC)
+    }
+
+    func createFavoritesNC() -> UINavigationController {
+        let favoritesVC = FavoritesVC()
+        favoritesVC.title = "Favorites"
+        favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+
+        return UINavigationController(rootViewController: favoritesVC)
+    }
+
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
