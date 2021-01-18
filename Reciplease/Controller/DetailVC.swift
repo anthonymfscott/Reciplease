@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 import SafariServices
 
 class DetailVC: UIViewController {
@@ -38,7 +39,9 @@ class DetailVC: UIViewController {
     }
 
     @objc private func addButtonTapped() {
-        // Favorites functionality
+        let favorite = Favorite(context: AppDelegate.viewContext)
+        favorite.name = recipe.recipe.label
+        try? AppDelegate.viewContext.save()
     }
 
     private func configureCallToActionButton() {

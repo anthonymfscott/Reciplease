@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FavoritesVC: UIViewController {
     override func viewDidLoad() {
@@ -15,5 +16,13 @@ class FavoritesVC: UIViewController {
 
         title = "Favorites"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.custom, size: 28)!]
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+
+        for favorite in Favorite.all {
+            print(favorite.name!)
+        }
     }
 }
