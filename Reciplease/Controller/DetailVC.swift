@@ -39,8 +39,12 @@ class DetailVC: UIViewController {
     }
 
     @objc private func addButtonTapped() {
-        let favorite = Favorite(context: AppDelegate.viewContext)
-        favorite.name = recipe.recipe.label
+        let favoriteRecipe = FavoriteRecipe(context: AppDelegate.viewContext)
+        favoriteRecipe.name = recipe.recipe.label
+        favoriteRecipe.ingredients = recipe.recipe.ingredientLines.joined(separator: ", ")
+        favoriteRecipe.image = recipe.recipe.image
+        favoriteRecipe.url = recipe.recipe.url
+        
         try? AppDelegate.viewContext.save()
     }
 

@@ -21,8 +21,12 @@ class FavoritesVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
-        for favorite in Favorite.all {
-            print(favorite.name!)
+        for favoriteRecipe in FavoriteRecipe.all {
+            guard let name = favoriteRecipe.name,
+                  let image = favoriteRecipe.image,
+                  let ingredients = favoriteRecipe.ingredients,
+                  let url = favoriteRecipe.url else { return }
+            print(name, image, ingredients, url)
         }
     }
 }

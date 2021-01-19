@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD62A51625B6F406004172F2 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD62A51425B6F406004172F2 /* Reciplease.xcdatamodeld */; };
+		AD62A51A25B6F49F004172F2 /* FavoriteRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD62A51925B6F49F004172F2 /* FavoriteRecipe.swift */; };
 		ADA1154B2571172A00611418 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA1154A2571172A00611418 /* Constants.swift */; };
 		ADA14C6A256326CB00CB76D7 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C69256326CB00CB76D7 /* Recipe.swift */; };
 		ADA14C6F2563BCCD00CB76D7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */; };
@@ -28,12 +30,12 @@
 		ADBC32DD25404EA600C837EA /* RPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32DC25404EA600C837EA /* RPButton.swift */; };
 		ADBC32E0254051E600C837EA /* RPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32DF254051E600C837EA /* RPTextField.swift */; };
 		ADBC32E72540CB3A00C837EA /* RecipeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC32E62540CB3A00C837EA /* RecipeListVC.swift */; };
-		ADE3084425B5EB5E00EAC9D9 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADE3084225B5EB5E00EAC9D9 /* Reciplease.xcdatamodeld */; };
 		ADE3084825B5F4A000EAC9D9 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3084725B5F4A000EAC9D9 /* PersistenceManager.swift */; };
-		ADE3087325B6000D00EAC9D9 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3087225B6000D00EAC9D9 /* Favorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD62A51525B6F406004172F2 /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
+		AD62A51925B6F49F004172F2 /* FavoriteRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipe.swift; sourceTree = "<group>"; };
 		ADA1154A2571172A00611418 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ADA14C69256326CB00CB76D7 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -57,9 +59,7 @@
 		ADBC32DC25404EA600C837EA /* RPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPButton.swift; sourceTree = "<group>"; };
 		ADBC32DF254051E600C837EA /* RPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTextField.swift; sourceTree = "<group>"; };
 		ADBC32E62540CB3A00C837EA /* RecipeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListVC.swift; sourceTree = "<group>"; };
-		ADE3084325B5EB5E00EAC9D9 /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		ADE3084725B5F4A000EAC9D9 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
-		ADE3087225B6000D00EAC9D9 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +76,9 @@
 		ADA14C68256326BA00CB76D7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ADE3084225B5EB5E00EAC9D9 /* Reciplease.xcdatamodeld */,
 				ADA14C69256326CB00CB76D7 /* Recipe.swift */,
-				ADE3087225B6000D00EAC9D9 /* Favorite.swift */,
+				AD62A51425B6F406004172F2 /* Reciplease.xcdatamodeld */,
+				AD62A51925B6F49F004172F2 /* FavoriteRecipe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADBC32D72540428400C837EA /* FavoritesVC.swift in Sources */,
+				AD62A51A25B6F49F004172F2 /* FavoriteRecipe.swift in Sources */,
 				ADBC32D42540419800C837EA /* SearchVC.swift in Sources */,
 				ADA14C7A25657B5900CB76D7 /* RecipeCell.swift in Sources */,
 				ADBC32E72540CB3A00C837EA /* RecipeListVC.swift in Sources */,
@@ -304,16 +305,15 @@
 				ADA14C8D2566A4DA00CB76D7 /* DetailVC.swift in Sources */,
 				ADA14C7D25657C2300CB76D7 /* RPRecipeImageView.swift in Sources */,
 				ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */,
-				ADE3084425B5EB5E00EAC9D9 /* Reciplease.xcdatamodeld in Sources */,
 				ADA14C9F2567DB5200CB76D7 /* UIView+Ext.swift in Sources */,
 				ADE3084825B5F4A000EAC9D9 /* PersistenceManager.swift in Sources */,
 				ADBC32BD25403EE800C837EA /* AppDelegate.swift in Sources */,
 				ADA14C732563D1C500CB76D7 /* RPError.swift in Sources */,
 				ADBC32DD25404EA600C837EA /* RPButton.swift in Sources */,
 				ADBB423625629161003CB377 /* IngredientCell.swift in Sources */,
-				ADE3087325B6000D00EAC9D9 /* Favorite.swift in Sources */,
 				ADBC32BF25403EE800C837EA /* SceneDelegate.swift in Sources */,
 				ADA14C6F2563BCCD00CB76D7 /* NetworkManager.swift in Sources */,
+				AD62A51625B6F406004172F2 /* Reciplease.xcdatamodeld in Sources */,
 				ADA14C6A256326CB00CB76D7 /* Recipe.swift in Sources */,
 				ADBC32E0254051E600C837EA /* RPTextField.swift in Sources */,
 			);
@@ -511,12 +511,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		ADE3084225B5EB5E00EAC9D9 /* Reciplease.xcdatamodeld */ = {
+		AD62A51425B6F406004172F2 /* Reciplease.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				ADE3084325B5EB5E00EAC9D9 /* Reciplease.xcdatamodel */,
+				AD62A51525B6F406004172F2 /* Reciplease.xcdatamodel */,
 			);
-			currentVersion = ADE3084325B5EB5E00EAC9D9 /* Reciplease.xcdatamodel */;
+			currentVersion = AD62A51525B6F406004172F2 /* Reciplease.xcdatamodel */;
 			path = Reciplease.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
