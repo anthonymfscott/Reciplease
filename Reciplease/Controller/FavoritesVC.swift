@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SafariServices
 
 class FavoritesVC: UIViewController {
     var favoriteRecipes: [FavoriteRecipe] = []
@@ -96,13 +97,17 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
         try? AppDelegate.viewContext.save()
     }
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let recipe = favoriteRecipes[indexPath.row]
-//
-//        let detailVC = DetailVC()
-//        detailVC.recipe = recipe
-//
-//        let detailNC = UINavigationController(rootViewController: detailVC)
-//        present(detailNC, animated: true)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let urlString = favoriteRecipes[indexPath.row].url,
+              let url = URL(string: urlString) else {
+            let alertVC = UIAlertController(title: "Invalid URL", message: "The url attached to this recipe is invalid.", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alertVC, animated: true)
+            return
+        }
+
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemGreen
+        present(safariVC, animated: true)
+    }
 }

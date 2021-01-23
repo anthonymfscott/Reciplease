@@ -35,13 +35,11 @@ class DetailVC: UIViewController {
         super.viewWillAppear(true)
 
         for favorite in FavoriteRecipe.all where recipe.label == favorite.label {
-            let filledStarButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
-            navigationItem.rightBarButtonItem = filledStarButton
+            fillStarButton()
             return
         }
 
-        let emptyStarButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
-        navigationItem.rightBarButtonItem = emptyStarButton
+        emptyStarButton()
     }
 
     @objc private func dismissVC() {
@@ -49,10 +47,8 @@ class DetailVC: UIViewController {
     }
 
     @objc private func favoriteButtonTapped() {
-        // toggle button status (isSelected?)
         for favorite in FavoriteRecipe.all where recipe.label == favorite.label {
-            let emptyStarButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
-            navigationItem.rightBarButtonItem = emptyStarButton
+            emptyStarButton()
 
             AppDelegate.viewContext.delete(favorite)
             try? AppDelegate.viewContext.save()
@@ -60,8 +56,7 @@ class DetailVC: UIViewController {
             return
         }
 
-        let filledStarButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
-        navigationItem.rightBarButtonItem = filledStarButton
+        fillStarButton()
 
         let favoriteRecipe = FavoriteRecipe(context: AppDelegate.viewContext)
         favoriteRecipe.label = recipe.label
@@ -148,5 +143,15 @@ class DetailVC: UIViewController {
             ingredientsScrollView.trailingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: -padding),
             ingredientsScrollView.bottomAnchor.constraint(equalTo: callToActionButton.topAnchor, constant: -padding),
         ])
+    }
+
+    private func emptyStarButton() {
+        let emptyStarButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
+        navigationItem.rightBarButtonItem = emptyStarButton
+    }
+
+    private func fillStarButton() {
+        let filledStarButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
+        navigationItem.rightBarButtonItem = filledStarButton
     }
 }
