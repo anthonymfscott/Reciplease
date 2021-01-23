@@ -27,25 +27,53 @@ class DetailVC: UIViewController {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
         navigationItem.leftBarButtonItem = doneButton
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
-        navigationItem.rightBarButtonItem = addButton
-
         configure()
         configureCallToActionButton()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+
+        for favorite in FavoriteRecipe.all where recipe.label == favorite.label {
+            let filledStarButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
+            navigationItem.rightBarButtonItem = filledStarButton
+            return
+        }
+
+        let emptyStarButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
+        navigationItem.rightBarButtonItem = emptyStarButton
     }
 
     @objc private func dismissVC() {
         dismiss(animated: true)
     }
 
-    @objc private func addButtonTapped() {
+    @objc private func favoriteButtonTapped() {
+        // toggle button status (isSelected?)
+        for favorite in FavoriteRecipe.all where recipe.label == favorite.label {
+            let emptyStarButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
+            navigationItem.rightBarButtonItem = emptyStarButton
+
+            AppDelegate.viewContext.delete(favorite)
+            try? AppDelegate.viewContext.save()
+
+            return
+        }
+
+        let filledStarButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
+        navigationItem.rightBarButtonItem = filledStarButton
+
         let favoriteRecipe = FavoriteRecipe(context: AppDelegate.viewContext)
-        favoriteRecipe.name = recipe.recipe.label
-        favoriteRecipe.ingredients = recipe.recipe.ingredientLines.joined(separator: ", ")
-        favoriteRecipe.image = recipe.recipe.image
-        favoriteRecipe.url = recipe.recipe.url
+        favoriteRecipe.label = recipe.label
+        favoriteRecipe.ingredientsLine = recipe.ingredientLines.joined(separator: ", ")
+        favoriteRecipe.image = recipe.image
+        favoriteRecipe.url = recipe.url
         
         try? AppDelegate.viewContext.save()
+
+        let alertVC = UIAlertController(title: "Delicious choice!", message: "You've successfully favorited this recipe!", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(alertVC, animated: true)
     }
 
     private func configureCallToActionButton() {
@@ -54,7 +82,7 @@ class DetailVC: UIViewController {
     }
 
     @objc private func callToActionButtonTapped() {
-        guard let url = URL(string: recipe.recipe.url) else {
+        guard let url = URL(string: recipe.url) else {
             let alertVC = UIAlertController(title: "Invalid URL", message: "The url attached to this recipe is invalid.", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .default))
             present(alertVC, animated: true)
@@ -72,12 +100,12 @@ class DetailVC: UIViewController {
     private func configure() {
         view.addSubviews(recipeImageView, recipeLabel, ingredientsTitleLabel, ingredientsScrollView, callToActionButton)
 
-        NetworkManager.shared.downloadImage(from: recipe.recipe.image) { [weak self] image in
+        NetworkManager.shared.downloadImage(from: recipe.image) { [weak self] image in
             guard let self = self else { return }
             DispatchQueue.main.async { self.recipeImageView.image = image }
         }
 
-        recipeLabel.text = recipe.recipe.label
+        recipeLabel.text = recipe.label
         recipeLabel.textColor = .white
         recipeLabel.shadowColor = .black
         recipeLabel.shadowOffset = CGSize(width: 1.8, height: 1.8)
@@ -87,7 +115,7 @@ class DetailVC: UIViewController {
         ingredientsScrollView.translatesAutoresizingMaskIntoConstraints = false
         ingredientsScrollView.addSubview(ingredientsListLabel)
 
-        ingredientsListLabel.text = "- " + recipe.recipe.ingredientLines.joined(separator: "\n- ")
+        ingredientsListLabel.text = "- " + recipe.ingredientLines.joined(separator: "\n- ")
         ingredientsListLabel.pinToEdges(of: ingredientsScrollView)
 
         let padding: CGFloat = 16

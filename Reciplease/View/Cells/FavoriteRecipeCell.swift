@@ -1,14 +1,14 @@
 //
-//  RecipeCell.swift
+//  FavoriteRecipeCell.swift
 //  Reciplease
 //
-//  Created by anthonymfscott on 18/11/2020.
+//  Created by anthonymfscott on 19/01/2021.
 //
 
 import UIKit
 
-class RecipeCell: UITableViewCell {
-    static let reuseID = "RecipeCell"
+class FavoriteRecipeCell: UITableViewCell {
+    static let reuseID = "FavoriteRecipeCell"
 
     let recipeImageView = RPRecipeImageView(frame: .zero)
     let recipeLabel = RPTitleLabel(textAlignment: .left, fontSize: 28)
@@ -19,14 +19,14 @@ class RecipeCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func set(recipe: Recipe) {
+    func set(recipe: FavoriteRecipe) {
         recipeLabel.text = recipe.label
-        ingredientsLabel.text = recipe.ingredientLines.joined(separator: ", ")
+        ingredientsLabel.text = recipe.ingredientsLine
 
         NetworkManager.shared.downloadImage(from: recipe.image) { [weak self] image in
             guard let self = self else { return }

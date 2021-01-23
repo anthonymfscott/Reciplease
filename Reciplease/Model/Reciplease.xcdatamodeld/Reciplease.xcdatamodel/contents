@@ -2,8 +2,8 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="FavoriteRecipe" representedClassName=".FavoriteRecipe" syncable="YES" codeGenerationType="category">
         <attribute name="image" optional="YES" attributeType="String"/>
-        <attribute name="ingredients" attributeType="String"/>
-        <attribute name="name" attributeType="String"/>
+        <attribute name="ingredientsLine" attributeType="String"/>
+        <attribute name="label" attributeType="String"/>
         <attribute name="url" attributeType="String"/>
     </entity>
     <elements>

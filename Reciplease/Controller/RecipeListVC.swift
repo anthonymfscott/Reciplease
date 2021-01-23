@@ -8,8 +8,6 @@
 import UIKit
 
 class RecipeListVC: UIViewController {
-    enum Section { case main }
-
     var ingredientsList: String!
     var recipes: [Recipe] = []
 
@@ -33,7 +31,6 @@ class RecipeListVC: UIViewController {
         }
 
         configureUI()
-
         getRecipes(ingredientsList: ingredientsList)
     }
 

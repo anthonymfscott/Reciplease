@@ -41,7 +41,12 @@ class NetworkManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let recipeResponse = try decoder.decode(RecipeResponse.self, from: data)
-                let recipes = recipeResponse.hits
+
+                var recipes: [Recipe] = []
+                for recipe in recipeResponse.hits {
+                    recipes.append(recipe.recipe)
+                }
+
                 completed(.success(recipes))
             } catch {
                 completed(.failure(.invalidData))
