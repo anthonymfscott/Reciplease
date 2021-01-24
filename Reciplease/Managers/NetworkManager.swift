@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class NetworkManager {
     static let shared = NetworkManager()
@@ -16,23 +17,8 @@ class NetworkManager {
     func getRecipes(for ingredients: String, completed: @escaping (Result<[Recipe], RPError>) -> Void) {
         let endpoint = baseUrl + "&q=\(ingredients)"
 
-        guard let url = URL(string: endpoint) else {
-            completed(.failure(.invalidRequest))
-            return
-        }
-
-        let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
-            if let _ = error {
-                completed(.failure(.unableToComplete))
-                return
-            }
-
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(.failure(.invalidResponse))
-                return
-            }
-
-            guard let data = data else {
+        AF.request(endpoint).validate().responseData { response in
+            guard let data = response.data else {
                 completed(.failure(.invalidData))
                 return
             }
@@ -51,31 +37,19 @@ class NetworkManager {
             } catch {
                 completed(.failure(.invalidData))
             }
-        })
-
-        task.resume()
+        }
     }
 
     func downloadImage(from urlString: String?, completed: @escaping (UIImage?) -> Void) {
         guard let urlString = urlString else { return }
 
-        guard let url = URL(string: urlString) else {
-            completed(nil)
-            return
-        }
-
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard error == nil,
-                  let response = response as? HTTPURLResponse, response.statusCode == 200,
-                  let data = data,
-                  let image = UIImage(data: data) else {
+        AF.request(urlString).validate().responseData { response in
+            guard let data = response.data else {
                 completed(nil)
                 return
             }
 
-            completed(image)
+            completed(UIImage(data: data))
         }
-
-        task.resume()
     }
 }
