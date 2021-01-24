@@ -14,6 +14,7 @@ class DetailVC: UIViewController {
 
     let recipeImageView = RPRecipeImageView(frame: .zero)
     let recipeLabel = RPTitleLabel(textAlignment: .center, fontSize: 32)
+    let detailLabel = RPBodyLabel(textAlignment: .right)
     let ingredientsTitleLabel = RPTitleLabel(textAlignment: .left, fontSize: 24)
     let ingredientsScrollView = UIScrollView()
     let ingredientsListLabel = RPBodyLabel(textAlignment: .left)
@@ -93,7 +94,7 @@ class DetailVC: UIViewController {
     //MARK: UI Configuration
 
     private func configure() {
-        view.addSubviews(recipeImageView, recipeLabel, ingredientsTitleLabel, ingredientsScrollView, callToActionButton)
+        view.addSubviews(recipeImageView, recipeLabel, detailLabel, ingredientsTitleLabel, ingredientsScrollView, callToActionButton)
 
         NetworkManager.shared.downloadImage(from: recipe.image) { [weak self] image in
             guard let self = self else { return }
@@ -104,6 +105,16 @@ class DetailVC: UIViewController {
         recipeLabel.textColor = .white
         recipeLabel.shadowColor = .black
         recipeLabel.shadowOffset = CGSize(width: 1.8, height: 1.8)
+
+        let totalTimes = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+
+        detailLabel.translatesAutoresizingMaskIntoConstraints = false
+        detailLabel.backgroundColor = .black
+        detailLabel.textColor = .white
+        detailLabel.text = """
+            \(Int.random(in: 0...999)) 🤍
+            \(totalTimes[Int.random(in: 0..<totalTimes.count)])' ⏱
+            """
 
         ingredientsTitleLabel.text = "Ingredients:"
 
@@ -128,6 +139,11 @@ class DetailVC: UIViewController {
             recipeLabel.trailingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: -padding),
             recipeLabel.heightAnchor.constraint(equalToConstant: 36),
 
+            detailLabel.topAnchor.constraint(equalTo: recipeImageView.topAnchor, constant: padding),
+            detailLabel.trailingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: -padding),
+            detailLabel.heightAnchor.constraint(equalToConstant: 52),
+            detailLabel.widthAnchor.constraint(equalToConstant: 68),
+
             ingredientsTitleLabel.topAnchor.constraint(equalTo: recipeImageView.bottomAnchor, constant: padding),
             ingredientsTitleLabel.leadingAnchor.constraint(equalTo: recipeImageView.leadingAnchor, constant: padding),
             ingredientsTitleLabel.trailingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: -padding),
@@ -141,7 +157,7 @@ class DetailVC: UIViewController {
             ingredientsScrollView.topAnchor.constraint(equalTo: ingredientsTitleLabel.bottomAnchor, constant: 10),
             ingredientsScrollView.leadingAnchor.constraint(equalTo: recipeImageView.leadingAnchor, constant: padding),
             ingredientsScrollView.trailingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: -padding),
-            ingredientsScrollView.bottomAnchor.constraint(equalTo: callToActionButton.topAnchor, constant: -padding),
+            ingredientsScrollView.bottomAnchor.constraint(equalTo: callToActionButton.topAnchor, constant: -padding)
         ])
     }
 

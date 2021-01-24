@@ -10,6 +10,8 @@ import UIKit
 class RecipeListVC: UIViewController {
     var ingredientsList: String!
     var recipes: [Recipe] = []
+    var page = 1
+    var containsMoreRecipes = true
 
     var recipeTableView = UITableView()
 
@@ -31,7 +33,7 @@ class RecipeListVC: UIViewController {
         }
 
         configureUI()
-        getRecipes(ingredientsList: ingredientsList)
+        getRecipes(ingredientsList: ingredientsList, page: page)
     }
 
     init(ingredientsList: String) {
@@ -46,11 +48,11 @@ class RecipeListVC: UIViewController {
 
     //MARK: View Methods
 
-    func getRecipes(ingredientsList: String) {
+    func getRecipes(ingredientsList: String, page: Int) {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
 
-        NetworkManager.shared.getRecipes(for: ingredientsList) { [weak self] result in
+        NetworkManager.shared.getRecipes(for: ingredientsList, page: page) { [weak self] result in
             guard let self = self else { return }
 
             DispatchQueue.main.async {
@@ -60,6 +62,7 @@ class RecipeListVC: UIViewController {
 
             switch result {
             case .success(let recipes):
+                if recipes.count < 10 { self.containsMoreRecipes = false }
                 self.recipes.append(contentsOf: recipes)
 
                 if self.recipes.isEmpty {
@@ -140,5 +143,17 @@ extension RecipeListVC: UITableViewDelegate, UITableViewDataSource {
 
         let detailNC = UINavigationController(rootViewController: detailVC)
         present(detailNC, animated: true)
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+
+        if offsetY > contentHeight - height {
+            guard containsMoreRecipes else { return }
+            page += 1
+            getRecipes(ingredientsList: ingredientsList, page: page)
+        }
     }
 }

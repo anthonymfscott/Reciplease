@@ -52,7 +52,7 @@ class FavoriteRecipeCell: UITableViewCell {
         detailLabel.textColor = .white
         detailLabel.text = """
             \(Int.random(in: 0...999)) 🤍
-            \(totalTimes[Int.random(in: 0..<totalTimes.count)]) ⏱
+            \(totalTimes[Int.random(in: 0..<totalTimes.count)])' ⏱
             """
 
         let padding: CGFloat = 10
