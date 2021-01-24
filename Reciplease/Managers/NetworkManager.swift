@@ -11,7 +11,8 @@ import Alamofire
 class NetworkManager {
     static let shared = NetworkManager()
     private let baseUrl = "https://api.edamam.com/search?app_id=96a4d08a&app_key=ebb19acb80a975dba752f611e2e88b37"
-
+    let cache = NSCache<NSString, UIImage>()
+    
     private init() {}
 
     func getRecipes(for ingredients: String, page: Int, completed: @escaping (Result<[Recipe], RPError>) -> Void) {
@@ -46,13 +47,22 @@ class NetworkManager {
     func downloadImage(from urlString: String?, completed: @escaping (UIImage?) -> Void) {
         guard let urlString = urlString else { return }
 
+        let cacheKey = NSString(string: urlString)
+
+        if let image = cache.object(forKey: cacheKey) {
+            completed(image)
+            return
+        }
+
         AF.request(urlString).validate().responseData { response in
-            guard let data = response.data else {
+            guard let data = response.data,
+                  let image = UIImage(data: data) else {
                 completed(nil)
                 return
             }
 
-            completed(UIImage(data: data))
+            self.cache.setObject(image, forKey: cacheKey)
+            completed(image)
         }
     }
 }
