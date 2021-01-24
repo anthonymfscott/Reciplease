@@ -13,7 +13,9 @@ class RecipeCell: UITableViewCell {
     let recipeImageView = RPRecipeImageView(frame: .zero)
     let recipeLabel = RPTitleLabel(textAlignment: .left, fontSize: 28)
     let ingredientsLabel = RPTitleLabel(textAlignment: .left, fontSize: 16)
+    let detailLabel = RPBodyLabel(textAlignment: .right)
 
+    let totalTimes = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -35,7 +37,7 @@ class RecipeCell: UITableViewCell {
     }
 
     private func configure() {
-        addSubviews(recipeImageView, recipeLabel, ingredientsLabel)
+        addSubviews(recipeImageView, recipeLabel, ingredientsLabel, detailLabel)
 
         recipeLabel.textColor = .white
         recipeLabel.shadowColor = .black
@@ -44,6 +46,14 @@ class RecipeCell: UITableViewCell {
         ingredientsLabel.textColor = .white
         ingredientsLabel.shadowColor = .black
         ingredientsLabel.shadowOffset = CGSize(width: 1, height: 1)
+
+        detailLabel.translatesAutoresizingMaskIntoConstraints = false
+        detailLabel.backgroundColor = .black
+        detailLabel.textColor = .white
+        detailLabel.text = """
+            \(Int.random(in: 0...999)) 🤍
+            \(totalTimes[Int.random(in: 0..<totalTimes.count)]) ⏱
+            """
 
         let padding: CGFloat = 10
 
@@ -61,7 +71,12 @@ class RecipeCell: UITableViewCell {
             recipeLabel.bottomAnchor.constraint(equalTo: ingredientsLabel.topAnchor),
             recipeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             recipeLabel.trailingAnchor.constraint(equalTo: ingredientsLabel.trailingAnchor),
-            recipeLabel.heightAnchor.constraint(equalToConstant: 32)
+            recipeLabel.heightAnchor.constraint(equalToConstant: 32),
+
+            detailLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            detailLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            detailLabel.heightAnchor.constraint(equalToConstant: 52),
+            detailLabel.widthAnchor.constraint(equalToConstant: 68)
         ])
     }
 }
