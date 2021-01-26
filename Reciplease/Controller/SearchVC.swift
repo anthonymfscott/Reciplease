@@ -11,6 +11,7 @@ class SearchVC: UIViewController {
     var ingredients: [String] = []
 
     let headerView = UIView()
+    let headerContentView = UIView()
     let forkImage = UIImageView(image: UIImage(named: Images.fork))
     let questionLabel = RPTitleLabel(textAlignment: .center, fontSize: 32)
     let ingredientsTextField = RPTextField()
@@ -81,14 +82,17 @@ class SearchVC: UIViewController {
             headerView.topAnchor.constraint(equalTo: view.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 310)
+            headerView.heightAnchor.constraint(equalToConstant: view.bounds.height/2.7)
         ])
 
         configureHeaderViewContent()
     }
 
     private func configureHeaderViewContent() {
-        headerView.addSubviews(forkImage, questionLabel, addButton, ingredientsTextField)
+        headerView.addSubview(headerContentView)
+        headerContentView.addSubviews(forkImage, questionLabel, addButton, ingredientsTextField)
+
+        headerContentView.translatesAutoresizingMaskIntoConstraints = false
 
         forkImage.translatesAutoresizingMaskIntoConstraints = false
         forkImage.clipsToBounds = true
@@ -105,25 +109,30 @@ class SearchVC: UIViewController {
         let height: CGFloat = 40
 
         NSLayoutConstraint.activate([
-            forkImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
-            forkImage.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
-            forkImage.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
-            forkImage.heightAnchor.constraint(equalToConstant: 80),
+            headerContentView.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
+            headerContentView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor, constant: 24),
+            headerContentView.heightAnchor.constraint(equalToConstant: 220),
+            headerContentView.widthAnchor.constraint(equalTo: view.widthAnchor),
 
-            addButton.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -padding),
-            addButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -padding),
+            addButton.bottomAnchor.constraint(equalTo: headerContentView.bottomAnchor, constant: -padding),
+            addButton.trailingAnchor.constraint(equalTo: headerContentView.trailingAnchor, constant: -padding),
             addButton.widthAnchor.constraint(equalToConstant: 70),
             addButton.heightAnchor.constraint(equalToConstant: height),
 
-            ingredientsTextField.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -padding),
-            ingredientsTextField.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: padding),
+            ingredientsTextField.bottomAnchor.constraint(equalTo: headerContentView.bottomAnchor, constant: -padding),
+            ingredientsTextField.leadingAnchor.constraint(equalTo: headerContentView.leadingAnchor, constant: padding),
             ingredientsTextField.trailingAnchor.constraint(equalTo: addButton.leadingAnchor, constant: -20),
             ingredientsTextField.heightAnchor.constraint(equalToConstant: height),
 
             questionLabel.bottomAnchor.constraint(equalTo: ingredientsTextField.topAnchor, constant: -16),
-            questionLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: padding),
-            questionLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -padding),
+            questionLabel.leadingAnchor.constraint(equalTo: headerContentView.leadingAnchor, constant: padding),
+            questionLabel.trailingAnchor.constraint(equalTo: headerContentView.trailingAnchor, constant: -padding),
             questionLabel.heightAnchor.constraint(equalToConstant: height),
+
+            forkImage.bottomAnchor.constraint(equalTo: questionLabel.topAnchor, constant: -16),
+            forkImage.leadingAnchor.constraint(equalTo: headerContentView.leadingAnchor),
+            forkImage.widthAnchor.constraint(equalToConstant: 310),
+            forkImage.heightAnchor.constraint(equalToConstant: 70)
         ])
     }
 

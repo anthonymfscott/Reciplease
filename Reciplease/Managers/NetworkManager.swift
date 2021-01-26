@@ -5,25 +5,33 @@
 //  Created by anthonymfscott on 17/11/2020.
 //
 
-import UIKit
+import Foundation
 import Alamofire
 
 class NetworkManager {
     static let shared = NetworkManager()
     private let baseUrl = "https://api.edamam.com/search?app_id=96a4d08a&app_key=ebb19acb80a975dba752f611e2e88b37"
     let cache = NSCache<NSString, UIImage>()
+
+    private var recipeSession = Session()
+    private var imageSession = Session()
+
+    init(recipeSession: Session, imageSession: Session) {
+        self.recipeSession = recipeSession
+        self.imageSession = imageSession
+    }
     
     private init() {}
 
-    func getRecipes(for ingredients: String, page: Int, completed: @escaping (Result<[Recipe], RPError>) -> Void) {
+    func getRecipes(for ingredients: String, page: Int, completed: @escaping (Result<[Recipe], AFError>) -> Void) {
         let firstElement = page*10 - 10
         let lastElement = page*10
 
         let endpoint = baseUrl + "&q=\(ingredients)&from=\(firstElement)&to=\(lastElement)"
 
-        AF.request(endpoint).validate().responseData { response in
+        recipeSession.request(endpoint).validate().responseData { response in
             guard let data = response.data else {
-                completed(.failure(.invalidData))
+                completed(.failure(AFError.responseValidationFailed(reason: .dataFileNil)))
                 return
             }
 
@@ -39,7 +47,7 @@ class NetworkManager {
 
                 completed(.success(recipes))
             } catch {
-                completed(.failure(.invalidData))
+                completed(.failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: AFError.explicitlyCancelled))))
             }
         }
     }
@@ -54,7 +62,7 @@ class NetworkManager {
             return
         }
 
-        AF.request(urlString).validate().responseData { response in
+        imageSession.request(urlString).validate().responseData { response in
             guard let data = response.data,
                   let image = UIImage(data: data) else {
                 completed(nil)

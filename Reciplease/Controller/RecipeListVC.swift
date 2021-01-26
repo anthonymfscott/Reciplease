@@ -75,7 +75,7 @@ class RecipeListVC: UIViewController {
                     self.recipeTableView.reloadData()
                 }
             case .failure(let error):
-                let alertVC = UIAlertController(title: "Something bad happened", message: error.rawValue, preferredStyle: .alert)
+                let alertVC = UIAlertController(title: "Something bad happened", message: error.errorDescription, preferredStyle: .alert)
                 alertVC.addAction(UIAlertAction(title: "OK", style: .default))
                 DispatchQueue.main.async { self.present(alertVC, animated: true) }
             }
