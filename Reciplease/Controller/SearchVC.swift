@@ -66,9 +66,15 @@ class SearchVC: UIViewController {
     }
 
     @objc private func pushRecipeListVC() {
-        let recipeListVC = RecipeListVC(ingredientsList: ingredients.joined(separator: ","))
+        var ingredientsList = ingredients.joined(separator: ",")
+        if ingredientsList.contains(" ") {
+            ingredientsList = ingredientsList.replacingOccurrences(of: " ", with: ",")
+        }
+        print(ingredientsList)
+        let recipeListVC = RecipeListVC(ingredientsList: ingredientsList)
         navigationController?.pushViewController(recipeListVC, animated: true)
     }
+
 
 
     //MARK: UI Configuration

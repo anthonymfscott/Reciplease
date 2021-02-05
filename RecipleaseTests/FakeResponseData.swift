@@ -2,26 +2,23 @@
 //  FakeResponseData.swift
 //  RecipleaseTests
 //
-//  Created by anthonymfscott on 25/01/2021.
+//  Created by anthonymfscott on 01/02/2021.
 //
 
 import Foundation
+import Alamofire
 
-class FakeResponseData {
-    let responseOK = HTTPURLResponse(url: URL(string: "https://google.com")!, statusCode: 200, httpVersion: nil, headerFields: nil)
-    let responseKO = HTTPURLResponse(url: URL(string: "https://google.com")!, statusCode: 500, httpVersion: nil, headerFields: nil)
-
-    class RecipeError: Error {}
-    let error = RecipeError()
-
-    var recipeCorrectData: Data {
-        let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "Recipe", withExtension: "json")
-        let data = try! Data(contentsOf: url!)
-        return data
-    }
-
-    let recipeIncorrectData = "error".data(using: .utf8)!
-
-    let imageData = "image".data(using: .utf8)!
-}
+//class FakeResponseData {
+//    static let responseOK = HTTPURLResponse(url: URL(string: "https://openclassrooms.com")!, statusCode: 200, httpVersion: nil, headerFields: nil)
+//    static let responseKO = HTTPURLResponse(url: URL(string: "https://openclassrooms.com")!, statusCode: 500, httpVersion: nil, headerFields: nil)
+//
+//    class NetworkError: Error {}
+//    static let networkError = NetworkError()
+//
+//    static var correctData: AFResult<Data> {
+//        let bundle = Bundle(for: FakeResponseData.self)
+//        let url = bundle.url(forResource: "Recipe", withExtension: "json")!
+//        return try! Data(contentsOf: url)
+//    }
+//    static let incorrectData = "error".data(using: .utf8)
+//}

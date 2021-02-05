@@ -9,11 +9,5 @@
 import XCTest
 
 class NetworkManagerTestCase: XCTestCase {
-//    func testValidData() {
-//        let bundle = Bundle(for: FakeResponseData.self)
-//        let url = bundle.url(forResource: "Recipe", withExtension: "json")
-//
-//        NetworkManager.init(afSession: SessionFake)
-//    }
-//
+    
 }

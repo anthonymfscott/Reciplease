@@ -13,25 +13,26 @@ class NetworkManager {
     private let baseUrl = "https://api.edamam.com/search?app_id=96a4d08a&app_key=ebb19acb80a975dba752f611e2e88b37"
     let cache = NSCache<NSString, UIImage>()
 
-    private var recipeSession = Session()
-    private var imageSession = Session()
+    private var recipeSession: AlamoSession = RPSession()
+    private var imageSession: AlamoSession = RPSession()
 
-    init(recipeSession: Session, imageSession: Session) {
+    init(recipeSession: AlamoSession, imageSession: AlamoSession) {
         self.recipeSession = recipeSession
         self.imageSession = imageSession
     }
     
     private init() {}
 
-    func getRecipes(for ingredients: String, page: Int, completed: @escaping (Result<[Recipe], AFError>) -> Void) {
+    func getRecipes(for ingredients: String, page: Int, completed: @escaping (Result<[APIRecipe], RPError>) -> Void) {
         let firstElement = page*10 - 10
         let lastElement = page*10
 
         let endpoint = baseUrl + "&q=\(ingredients)&from=\(firstElement)&to=\(lastElement)"
+        guard let url = URL(string: endpoint) else { return }
 
-        recipeSession.request(endpoint).validate().responseData { response in
+        recipeSession.request(with: url) { response in
             guard let data = response.data else {
-                completed(.failure(AFError.responseValidationFailed(reason: .dataFileNil)))
+                completed(.failure(.standard))
                 return
             }
 
@@ -40,20 +41,20 @@ class NetworkManager {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let recipeResponse = try decoder.decode(RecipeResponse.self, from: data)
 
-                var recipes: [Recipe] = []
+                var recipes: [APIRecipe] = []
                 for recipe in recipeResponse.hits {
                     recipes.append(recipe.recipe)
                 }
 
                 completed(.success(recipes))
             } catch {
-                completed(.failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: AFError.explicitlyCancelled))))
+                completed(.failure(.standard))
             }
         }
     }
 
     func downloadImage(from urlString: String?, completed: @escaping (UIImage?) -> Void) {
-        guard let urlString = urlString else { return }
+        guard let urlString = urlString, let url = URL(string: urlString) else { return }
 
         let cacheKey = NSString(string: urlString)
 
@@ -62,7 +63,7 @@ class NetworkManager {
             return
         }
 
-        imageSession.request(urlString).validate().responseData { response in
+        imageSession.request(with: url) { response in
             guard let data = response.data,
                   let image = UIImage(data: data) else {
                 completed(nil)

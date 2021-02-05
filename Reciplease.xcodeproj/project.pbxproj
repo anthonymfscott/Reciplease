@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD0CE7D625CD42AD005C2EF6 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CE7D525CD42AD005C2EF6 /* CoreDataStore.swift */; };
+		AD3F20BC25C80B8600D99B3C /* PersistenceManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F20BB25C80B8600D99B3C /* PersistenceManagerTestCase.swift */; };
+		AD3F20C225C80F9F00D99B3C /* RPSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F20C125C80F9F00D99B3C /* RPSession.swift */; };
+		AD3F20C825C812B200D99B3C /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F20C725C812B200D99B3C /* FakeResponseData.swift */; };
+		AD3F20CC25C813A200D99B3C /* FakeRPSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F20CB25C813A200D99B3C /* FakeRPSession.swift */; };
 		AD62A51625B6F406004172F2 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD62A51425B6F406004172F2 /* Reciplease.xcdatamodeld */; };
 		AD62A51A25B6F49F004172F2 /* FavoriteRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD62A51925B6F49F004172F2 /* FavoriteRecipe.swift */; };
-		AD62A51E25B70E54004172F2 /* FavoriteRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD62A51D25B70E54004172F2 /* FavoriteRecipeCell.swift */; };
 		AD76F24D25BEF788004BF6E4 /* NetworkManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76F24C25BEF788004BF6E4 /* NetworkManagerTestCase.swift */; };
-		AD76F25125BEF881004BF6E4 /* Recipe.json in Resources */ = {isa = PBXBuildFile; fileRef = AD76F25025BEF881004BF6E4 /* Recipe.json */; };
-		AD76F25525BEFAAB004BF6E4 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76F25425BEFAAB004BF6E4 /* FakeResponseData.swift */; };
-		AD76F25925BF1050004BF6E4 /* SessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76F25825BF1050004BF6E4 /* SessionFake.swift */; };
-		AD76F25D25C022A7004BF6E4 /* AFSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76F25C25C022A7004BF6E4 /* AFSession.swift */; };
+		AD76F25125BEF881004BF6E4 /* RecipeResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = AD76F25025BEF881004BF6E4 /* RecipeResponse.json */; };
+		AD96839E25C314C9001130A8 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD96839D25C314C9001130A8 /* Recipe.swift */; };
+		AD9683A425C31701001130A8 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9683A325C31701001130A8 /* PersistenceManager.swift */; };
 		ADA1154B2571172A00611418 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA1154A2571172A00611418 /* Constants.swift */; };
-		ADA14C6A256326CB00CB76D7 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C69256326CB00CB76D7 /* Recipe.swift */; };
+		ADA14C6A256326CB00CB76D7 /* APIRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C69256326CB00CB76D7 /* APIRecipe.swift */; };
 		ADA14C6F2563BCCD00CB76D7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */; };
 		ADA14C732563D1C500CB76D7 /* RPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C722563D1C500CB76D7 /* RPError.swift */; };
 		ADA14C7A25657B5900CB76D7 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA14C7925657B5900CB76D7 /* RecipeCell.swift */; };
@@ -50,18 +53,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD0CE7D525CD42AD005C2EF6 /* CoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
+		AD3F20BB25C80B8600D99B3C /* PersistenceManagerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManagerTestCase.swift; sourceTree = "<group>"; };
+		AD3F20C125C80F9F00D99B3C /* RPSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSession.swift; sourceTree = "<group>"; };
+		AD3F20C725C812B200D99B3C /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		AD3F20CB25C813A200D99B3C /* FakeRPSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRPSession.swift; sourceTree = "<group>"; };
 		AD62A51525B6F406004172F2 /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		AD62A51925B6F49F004172F2 /* FavoriteRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipe.swift; sourceTree = "<group>"; };
-		AD62A51D25B70E54004172F2 /* FavoriteRecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeCell.swift; sourceTree = "<group>"; };
 		AD76F23E25BEF19F004BF6E4 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD76F24225BEF19F004BF6E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD76F24C25BEF788004BF6E4 /* NetworkManagerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTestCase.swift; sourceTree = "<group>"; };
-		AD76F25025BEF881004BF6E4 /* Recipe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipe.json; sourceTree = "<group>"; };
-		AD76F25425BEFAAB004BF6E4 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
-		AD76F25825BF1050004BF6E4 /* SessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFake.swift; sourceTree = "<group>"; };
-		AD76F25C25C022A7004BF6E4 /* AFSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFSession.swift; sourceTree = "<group>"; };
+		AD76F25025BEF881004BF6E4 /* RecipeResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecipeResponse.json; sourceTree = "<group>"; };
+		AD96839D25C314C9001130A8 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		AD9683A325C31701001130A8 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		ADA1154A2571172A00611418 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		ADA14C69256326CB00CB76D7 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		ADA14C69256326CB00CB76D7 /* APIRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRecipe.swift; sourceTree = "<group>"; };
 		ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ADA14C722563D1C500CB76D7 /* RPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPError.swift; sourceTree = "<group>"; };
 		ADA14C7925657B5900CB76D7 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
@@ -118,11 +124,12 @@
 		AD76F23F25BEF19F004BF6E4 /* RecipleaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				AD76F24225BEF19F004BF6E4 /* Info.plist */,
+				AD76F25025BEF881004BF6E4 /* RecipeResponse.json */,
+				AD3F20C725C812B200D99B3C /* FakeResponseData.swift */,
+				AD3F20CB25C813A200D99B3C /* FakeRPSession.swift */,
 				AD76F24C25BEF788004BF6E4 /* NetworkManagerTestCase.swift */,
-				AD76F25025BEF881004BF6E4 /* Recipe.json */,
-				AD76F25425BEFAAB004BF6E4 /* FakeResponseData.swift */,
-				AD76F25825BF1050004BF6E4 /* SessionFake.swift */,
+				AD3F20BB25C80B8600D99B3C /* PersistenceManagerTestCase.swift */,
+				AD76F24225BEF19F004BF6E4 /* Info.plist */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -130,9 +137,10 @@
 		ADA14C68256326BA00CB76D7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ADA14C69256326CB00CB76D7 /* Recipe.swift */,
-				AD62A51425B6F406004172F2 /* Reciplease.xcdatamodeld */,
+				AD96839D25C314C9001130A8 /* Recipe.swift */,
+				ADA14C69256326CB00CB76D7 /* APIRecipe.swift */,
 				AD62A51925B6F49F004172F2 /* FavoriteRecipe.swift */,
+				AD62A51425B6F406004172F2 /* Reciplease.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,8 +148,10 @@
 		ADA14C6D2563BCB800CB76D7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				AD3F20C125C80F9F00D99B3C /* RPSession.swift */,
 				ADA14C6E2563BCCD00CB76D7 /* NetworkManager.swift */,
-				AD76F25C25C022A7004BF6E4 /* AFSession.swift */,
+				AD0CE7D525CD42AD005C2EF6 /* CoreDataStore.swift */,
+				AD9683A325C31701001130A8 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -160,7 +170,6 @@
 			children = (
 				ADBB423525629161003CB377 /* IngredientCell.swift */,
 				ADA14C7925657B5900CB76D7 /* RecipeCell.swift */,
-				AD62A51D25B70E54004172F2 /* FavoriteRecipeCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -376,7 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD76F25125BEF881004BF6E4 /* Recipe.json in Resources */,
+				AD76F25125BEF881004BF6E4 /* RecipeResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,9 +448,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD3F20BC25C80B8600D99B3C /* PersistenceManagerTestCase.swift in Sources */,
 				AD76F24D25BEF788004BF6E4 /* NetworkManagerTestCase.swift in Sources */,
-				AD76F25925BF1050004BF6E4 /* SessionFake.swift in Sources */,
-				AD76F25525BEFAAB004BF6E4 /* FakeResponseData.swift in Sources */,
+				AD3F20C825C812B200D99B3C /* FakeResponseData.swift in Sources */,
+				AD3F20CC25C813A200D99B3C /* FakeRPSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,15 +461,18 @@
 			files = (
 				ADBC32D72540428400C837EA /* FavoritesVC.swift in Sources */,
 				AD62A51A25B6F49F004172F2 /* FavoriteRecipe.swift in Sources */,
+				AD96839E25C314C9001130A8 /* Recipe.swift in Sources */,
 				ADBC32D42540419800C837EA /* SearchVC.swift in Sources */,
 				ADA14C7A25657B5900CB76D7 /* RecipeCell.swift in Sources */,
 				ADBC32E72540CB3A00C837EA /* RecipeListVC.swift in Sources */,
+				AD0CE7D625CD42AD005C2EF6 /* CoreDataStore.swift in Sources */,
 				ADA1154B2571172A00611418 /* Constants.swift in Sources */,
 				ADBB421D2562716A003CB377 /* RPTitleLabel.swift in Sources */,
 				ADA14C8D2566A4DA00CB76D7 /* DetailVC.swift in Sources */,
 				ADA14C7D25657C2300CB76D7 /* RPRecipeImageView.swift in Sources */,
-				AD76F25D25C022A7004BF6E4 /* AFSession.swift in Sources */,
 				ADBB4220256272AE003CB377 /* RPBodyLabel.swift in Sources */,
+				AD9683A425C31701001130A8 /* PersistenceManager.swift in Sources */,
+				AD3F20C225C80F9F00D99B3C /* RPSession.swift in Sources */,
 				ADA14C9F2567DB5200CB76D7 /* UIView+Ext.swift in Sources */,
 				ADBC32BD25403EE800C837EA /* AppDelegate.swift in Sources */,
 				ADA14C732563D1C500CB76D7 /* RPError.swift in Sources */,
@@ -468,8 +481,7 @@
 				ADBC32BF25403EE800C837EA /* SceneDelegate.swift in Sources */,
 				ADA14C6F2563BCCD00CB76D7 /* NetworkManager.swift in Sources */,
 				AD62A51625B6F406004172F2 /* Reciplease.xcdatamodeld in Sources */,
-				AD62A51E25B70E54004172F2 /* FavoriteRecipeCell.swift in Sources */,
-				ADA14C6A256326CB00CB76D7 /* Recipe.swift in Sources */,
+				ADA14C6A256326CB00CB76D7 /* APIRecipe.swift in Sources */,
 				ADBC32E0254051E600C837EA /* RPTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

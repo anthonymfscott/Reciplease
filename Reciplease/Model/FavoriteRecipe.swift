@@ -8,10 +8,23 @@
 import Foundation
 import CoreData
 
-class FavoriteRecipe: NSManagedObject {
-    static var all: [FavoriteRecipe] {
-        let request: NSFetchRequest<FavoriteRecipe> = FavoriteRecipe.fetchRequest()
-        guard let favorites = try? AppDelegate.viewContext.fetch(request) else { return [] }
-        return favorites
+class FavoriteRecipe: NSManagedObject {}
+
+extension FavoriteRecipe: Recipe {
+    func getImage() -> String? {
+        guard let image = image else { return nil }
+        return image
+    }
+
+    func getName() -> String {
+        return label!
+    }
+
+    func getIngredients() -> [String] {
+        return ingredientLines!.components(separatedBy: ", ")
+    }
+
+    func getUrl() -> String {
+        return url!
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class RecipeListVC: UIViewController {
     var ingredientsList: String!
-    var recipes: [Recipe] = []
+    var recipes: [APIRecipe] = []
     var page = 1
     var containsMoreRecipes = true
 
@@ -65,17 +65,15 @@ class RecipeListVC: UIViewController {
                 if recipes.count < 10 { self.containsMoreRecipes = false }
                 self.recipes.append(contentsOf: recipes)
 
-                if self.recipes.isEmpty {
-                    DispatchQueue.main.async { self.messageLabel.isHidden = false }
-                    return
-                }
-
                 DispatchQueue.main.async {
+                    if self.recipes.isEmpty {
+                        self.messageLabel.isHidden = false
+                    }
                     self.recipeTableView.isHidden = false
                     self.recipeTableView.reloadData()
                 }
             case .failure(let error):
-                let alertVC = UIAlertController(title: "Something bad happened", message: error.errorDescription, preferredStyle: .alert)
+                let alertVC = UIAlertController(title: "Something bad happened", message: error.localizedDescription, preferredStyle: .alert)
                 alertVC.addAction(UIAlertAction(title: "OK", style: .default))
                 DispatchQueue.main.async { self.present(alertVC, animated: true) }
             }
@@ -103,7 +101,7 @@ class RecipeListVC: UIViewController {
         recipeTableView.isHidden = true
 
         NSLayoutConstraint.activate([
-            messageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+            messageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20),
             messageLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             messageLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             messageLabel.heightAnchor.constraint(equalToConstant: 300),

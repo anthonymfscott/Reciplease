@@ -35,7 +35,7 @@ class DetailVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
-        for favorite in FavoriteRecipe.all where recipe.label == favorite.label {
+        for favorite in PersistenceManager.all where recipe.getName() == favorite.getName() {
             fillStarButton()
             return
         }
@@ -48,24 +48,16 @@ class DetailVC: UIViewController {
     }
 
     @objc private func favoriteButtonTapped() {
-        for favorite in FavoriteRecipe.all where recipe.label == favorite.label {
-            emptyStarButton()
-
-            AppDelegate.viewContext.delete(favorite)
-            try? AppDelegate.viewContext.save()
+        for favorite in PersistenceManager.all where recipe.getName() == favorite.getName() {
+            let alertVC = UIAlertController(title: "Already favorited!", message: "Either you adore this recipe 😋\nor you want to delete it, in which case you should go to your Favorites list and swipe it to the left.", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel))
+            present(alertVC, animated: true)
 
             return
         }
 
         fillStarButton()
-
-        let favoriteRecipe = FavoriteRecipe(context: AppDelegate.viewContext)
-        favoriteRecipe.label = recipe.label
-        favoriteRecipe.ingredientsLine = recipe.ingredientLines.joined(separator: ", ")
-        favoriteRecipe.image = recipe.image
-        favoriteRecipe.url = recipe.url
-        
-        try? AppDelegate.viewContext.save()
+        PersistenceManager.shared.save(recipe)
 
         let alertVC = UIAlertController(title: "Delicious choice!", message: "You've successfully favorited this recipe!", preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel))
@@ -78,7 +70,7 @@ class DetailVC: UIViewController {
     }
 
     @objc private func callToActionButtonTapped() {
-        guard let url = URL(string: recipe.url) else {
+        guard let url = URL(string: recipe.getUrl()) else {
             let alertVC = UIAlertController(title: "Invalid URL", message: "The url attached to this recipe is invalid.", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .default))
             present(alertVC, animated: true)
@@ -96,12 +88,12 @@ class DetailVC: UIViewController {
     private func configure() {
         view.addSubviews(recipeImageView, recipeLabel, detailLabel, ingredientsTitleLabel, ingredientsScrollView, callToActionButton)
 
-        NetworkManager.shared.downloadImage(from: recipe.image) { [weak self] image in
+        NetworkManager.shared.downloadImage(from: recipe.getImage()) { [weak self] image in
             guard let self = self else { return }
             DispatchQueue.main.async { self.recipeImageView.image = image }
         }
 
-        recipeLabel.text = recipe.label
+        recipeLabel.text = recipe.getName()
         recipeLabel.textColor = .white
         recipeLabel.shadowColor = .black
         recipeLabel.shadowOffset = CGSize(width: 1.8, height: 1.8)
@@ -121,7 +113,7 @@ class DetailVC: UIViewController {
         ingredientsScrollView.translatesAutoresizingMaskIntoConstraints = false
         ingredientsScrollView.addSubview(ingredientsListLabel)
 
-        ingredientsListLabel.text = "- " + recipe.ingredientLines.joined(separator: "\n- ")
+        ingredientsListLabel.text = "- " + recipe.getIngredients().joined(separator: "\n- ")
         ingredientsListLabel.pinToEdges(of: ingredientsScrollView)
 
         let padding: CGFloat = 16

@@ -27,10 +27,10 @@ class RecipeCell: UITableViewCell {
     }
 
     func set(recipe: Recipe) {
-        recipeLabel.text = recipe.label
-        ingredientsLabel.text = recipe.ingredientLines.joined(separator: ", ")
+        recipeLabel.text = recipe.getName()
+        ingredientsLabel.text = recipe.getIngredients().joined(separator: ", ")
 
-        NetworkManager.shared.downloadImage(from: recipe.image) { [weak self] image in
+        NetworkManager.shared.downloadImage(from: recipe.getImage()) { [weak self] image in
             guard let self = self else { return }
             DispatchQueue.main.async { self.recipeImageView.image = image }
         }
